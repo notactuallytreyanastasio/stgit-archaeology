@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Complete History of Stacked Git (StGit) - 21 Years of Patch Stack Excellence</title>
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --text-primary: #c9d1d9;
+            --text-secondary: #8b949e;
+            --text-muted: #6e7681;
+            --accent-blue: #58a6ff;
+            --accent-green: #3fb950;
+            --accent-purple: #a371f7;
+            --accent-orange: #d29922;
+            --accent-red: #f85149;
+            --accent-cyan: #39c5cf;
+            --border-color: #30363d;
+            --code-bg: #1c2128;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Header */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .hero .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation */
+        .nav {
+            position: sticky;
+            top: 0;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border-color);
+            padding: 15px 20px;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .view-graph-btn {
+            background: var(--accent-green);
+            color: var(--bg-primary);
+            padding: 8px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .view-graph-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(63, 185, 80, 0.3);
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h2 .era-badge {
+            font-size: 0.8rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .era-1 .era-badge { background: var(--accent-orange); color: var(--bg-primary); }
+        .era-2 .era-badge { background: var(--accent-purple); color: var(--bg-primary); }
+        .era-3 .era-badge { background: var(--accent-red); color: white; }
+        .era-4 .era-badge { background: var(--accent-green); color: var(--bg-primary); }
+
+        h3 {
+            font-size: 1.4rem;
+            margin: 40px 0 20px;
+            color: var(--accent-cyan);
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            margin: 25px 0 15px;
+            color: var(--text-primary);
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 25px;
+            width: 12px;
+            height: 12px;
+            background: var(--accent-blue);
+            border-radius: 50%;
+            border: 3px solid var(--bg-primary);
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Code blocks */
+        pre {
+            background: var(--code-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'SF Mono', 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        code {
+            font-family: 'SF Mono', 'Consolas', 'Monaco', monospace;
+            background: var(--code-bg);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        /* Decision boxes */
+        .decision-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--accent-purple);
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .decision-box h4 {
+            color: var(--accent-purple);
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .decision-box h4::before {
+            content: '?';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: var(--accent-purple);
+            color: white;
+            border-radius: 50%;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .options-list {
+            margin-top: 15px;
+        }
+
+        .option {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            padding: 12px;
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+        }
+
+        .option.chosen {
+            border: 1px solid var(--accent-green);
+        }
+
+        .option.rejected {
+            opacity: 0.6;
+        }
+
+        .option-badge {
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .option.chosen .option-badge {
+            background: var(--accent-green);
+            color: var(--bg-primary);
+        }
+
+        .option.rejected .option-badge {
+            background: var(--text-muted);
+            color: var(--bg-primary);
+        }
+
+        /* Feature cards */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .feature-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .feature-card h5 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--accent-cyan);
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        /* Commit references */
+        .commit-ref {
+            font-family: 'SF Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-blue);
+            background: var(--bg-tertiary);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* GitHub links */
+        .gh-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 2px 8px;
+            background: var(--bg-tertiary);
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .gh-link:hover {
+            background: var(--border-color);
+        }
+
+        .gh-link::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2358a6ff'%3E%3Cpath d='M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z'/%3E%3C/svg%3E");
+            background-size: contain;
+        }
+
+        .gh-issue::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%233fb950'%3E%3Cpath d='M8 9.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z'/%3E%3Cpath fill-rule='evenodd' d='M8 0a8 8 0 100 16A8 8 0 008 0zM1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0z'/%3E%3C/svg%3E");
+        }
+
+        .gh-pr::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23a371f7'%3E%3Cpath fill-rule='evenodd' d='M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z'/%3E%3C/svg%3E");
+        }
+
+        /* Release badges */
+        .release-badge {
+            display: inline-block;
+            font-size: 0.85rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .release-badge.major { background: var(--accent-green); color: var(--bg-primary); }
+        .release-badge.minor { background: var(--accent-blue); color: var(--bg-primary); }
+        .release-badge.patch { background: var(--text-muted); color: var(--bg-primary); }
+
+        /* Contributors */
+        .contributors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .contributor-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .contributor-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .contributor-info h5 {
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+        }
+
+        .contributor-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Blockquotes */
+        blockquote {
+            border-left: 4px solid var(--accent-blue);
+            padding: 15px 20px;
+            margin: 25px 0;
+            background: var(--bg-secondary);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        blockquote cite {
+            display: block;
+            margin-top: 10px;
+            font-style: normal;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: var(--text-secondary);
+        }
+
+        li strong {
+            color: var(--text-primary);
+        }
+
+        /* Emphasis boxes */
+        .insight-box {
+            background: linear-gradient(135deg, rgba(88, 166, 255, 0.1) 0%, rgba(163, 113, 247, 0.1) 100%);
+            border: 1px solid var(--accent-blue);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+
+        .insight-box h4 {
+            color: var(--accent-blue);
+            margin-top: 0;
+        }
+
+        .warning-box {
+            background: rgba(248, 81, 73, 0.1);
+            border: 1px solid var(--accent-red);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+        }
+
+        .warning-box h4 {
+            color: var(--accent-red);
+            margin-top: 0;
+        }
+
+        /* Issue/PR cards */
+        .issue-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+
+        .issue-card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .issue-card-title {
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+
+        .issue-card-body {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero .subtitle { font-size: 1.2rem; }
+            .stat-value { font-size: 2rem; }
+            h2 { font-size: 1.6rem; }
+            .nav-content { flex-direction: column; }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Link styling */
+        a {
+            color: var(--accent-blue);
+        }
+
+        /* Version comparison table */
+        .version-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            font-size: 0.9rem;
+        }
+
+        .version-table th,
+        .version-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .version-table th {
+            background: var(--bg-tertiary);
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .version-table tr:hover {
+            background: var(--bg-secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1>Stacked Git</h1>
+        <p class="subtitle">The Complete History of StGit: 21 Years of Patch Stack Excellence</p>
+        <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto;">
+            From a Python script born in 2005 to a Rust powerhouse in 2022, this is the comprehensive story of one of Git's most enduring workflow tools. Every decision traced, every release documented.
+        </p>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value">21</div>
+                <div class="stat-label">Years Active</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">3,598</div>
+                <div class="stat-label">Commits</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">65+</div>
+                <div class="stat-label">Releases</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">600+</div>
+                <div class="stat-label">Issues & PRs</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="nav-links">
+                <a href="#prologue">Prologue</a>
+                <a href="#era1">Era 1: Python</a>
+                <a href="#era2">Era 2: Maturation</a>
+                <a href="#era3">Era 3: Rust Rewrite</a>
+                <a href="#era4">Era 4: Evolution</a>
+                <a href="#contributors">Contributors</a>
+            </div>
+            <a href="index.html" class="view-graph-btn">View Decision Graph</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Prologue -->
+        <section id="prologue">
+            <h2>Prologue: The Problem of Patch-Based Development</h2>
+
+            <p>
+                In the early 2000s, the Linux kernel development community faced a unique challenge. Thousands of developers contributed patches via email to mailing lists, where maintainers would review, request changes, and eventually merge them. Unlike modern pull request workflows, patches were iterative&mdash;often going through 10, 20, or even 30 revisions before acceptance.
+            </p>
+
+            <p>
+                Developers needed a way to maintain <strong>stacks of patches</strong>: organized series of changes that could be reordered, modified, and rebased while preserving their logical separation. Git, which Linus Torvalds released in April 2005, provided the foundation, but lacked native tooling for this workflow.
+            </p>
+
+            <div class="insight-box">
+                <h4>The Patch Stack Philosophy</h4>
+                <p>
+                    A patch stack treats each logical change as an independent unit. Instead of one monolithic branch with mixed concerns, developers maintain discrete patches that can be individually modified, reordered, or dropped. This creates cleaner commit histories and easier code review.
+                </p>
+            </div>
+
+            <p>
+                Catalin Marinas, an ARM Linux kernel engineer, felt this pain acutely. Managing dozens of patches for ARM architecture support meant constant rebasing, careful tracking of what had been upstreamed, and painful merge conflicts. He needed tooling that understood patch stacks natively.
+            </p>
+
+            <blockquote>
+                "With a patch stack workflow, multiple patches can be developed concurrently and efficiently, with each patch focused on a single concern, resulting in both a clean Git commit history and improved productivity."
+                <cite>&mdash; StGit README</cite>
+            </blockquote>
+
+            <p>
+                On <strong>July 10, 2005</strong>&mdash;just three months after Git's initial release&mdash;Catalin committed the first version of Stacked Git. The tool that would serve kernel developers for over two decades was born.
+            </p>
+        </section>
+
+        <!-- Era 1: Original Python Implementation -->
+        <section id="era1" class="era-1">
+            <h2><span class="era-badge">2005-2020</span> Era 1: The Python Foundation</h2>
+
+            <p>
+                The original StGit was a Python application of surprising sophistication. The initial commit (Release 0.4) shipped with 20 files totaling 2,871 lines of code, implementing the core operations that would define the tool: <code>new</code>, <code>push</code>, <code>pop</code>, <code>refresh</code>, and <code>series</code>.
+            </p>
+
+            <h3>The Initial Architecture (v0.4)</h3>
+
+            <p>The founding release established patterns that would persist for 17 years:</p>
+
+            <pre><code>stgit/
+├── main.py      # Command dispatch, 819 lines of interleaved commands
+├── stack.py     # Patch stack data model, 535 lines
+├── git.py       # Git operations wrapper, 413 lines
+├── config.py    # Configuration handling
+└── utils.py     # Shared utilities</code></pre>
+
+            <div class="decision-box">
+                <h4>Command Structure Architecture</h4>
+                <p>How should StGit organize its growing set of subcommands?</p>
+                <div class="options-list">
+                    <div class="option rejected">
+                        <span class="option-badge">Initial</span>
+                        <div>Single main.py with all commands inline&mdash;simple but unscalable as commands multiplied</div>
+                    </div>
+                    <div class="option chosen">
+                        <span class="option-badge">Chosen</span>
+                        <div>Separate commands in <code>stgit/commands/*</code> module files&mdash;adopted in v0.5 (<span class="commit-ref">fcee87cf</span>)</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Release 0.5: The Mailing List Revolution (August 2005)</h3>
+
+            <p>
+                Within a month, StGit gained the features that made it indispensable for kernel development. The <code>mail</code> command (<span class="commit-ref">b4bddc06</span>) allowed developers to send patch series directly to mailing lists&mdash;a critical feature when email was the primary collaboration mechanism.
+            </p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h5>stg mail</h5>
+                    <p>Send patches via SMTP with proper threading and cover letters. Integrated maintainer aliases.</p>
+                </div>
+                <div class="feature-card">
+                    <h5>stg import</h5>
+                    <p>Import patches from files, mbox format, or URLs. Parse email headers to extract authorship.</p>
+                </div>
+                <div class="feature-card">
+                    <h5>stg pull</h5>
+                    <p>Integrate upstream changes while preserving the patch stack. Automatic rebasing.</p>
+                </div>
+                <div class="feature-card">
+                    <h5>stg clean</h5>
+                    <p>Remove empty patches after conflicts are resolved. Stack hygiene.</p>
+                </div>
+            </div>
+
+            <div class="decision-box">
+                <h4>How to integrate with upstream mailing lists?</h4>
+                <p>Kernel patches flow through email. How should StGit participate?</p>
+                <div class="options-list">
+                    <div class="option chosen">
+                        <span class="option-badge">Chosen</span>
+                        <div>Implement native <code>stg mail</code> with SMTP support, threading, and cover letters</div>
+                    </div>
+                    <div class="option rejected">
+                        <span class="option-badge">Alternative</span>
+                        <div>Use <code>git format-patch</code> + external MUA&mdash;more flexible but less integrated</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Release 0.6-0.7: Clone, Fold, Pick (September 2005)</h3>
+
+            <p>
+                The pace was relentless. September brought <code>clone</code> for initializing stacks in new repositories, <code>fold</code> for merging patches, <code>id</code> for showing patch hashes, and crucially, <code>pick</code> for cherry-picking patches between stacks.
+            </p>
+
+            <p>
+                Release 0.7 also restored the tutorial to the repository (<span class="commit-ref">d1c8fcd7</span>)&mdash;a sign that adoption was growing and documentation mattered.
+            </p>
+
+            <h3>Release 0.8-0.9: Branch Management and UX (October 2005)</h3>
+
+            <p>
+                These releases focused on ergonomics. Branch cloning (<span class="commit-ref">cc3db2b1</span>) allowed creating new stacks from existing ones. The <code>show</code> command displayed patch contents. Pager support (<span class="commit-ref">52f3900c</span>) made reading diffs comfortable. And <code>refresh --undo</code> provided a safety net.
+            </p>
+
+            <h3>Release 0.10: The Testing Foundation (November 2005)</h3>
+
+            <p>
+                A pivotal release. Catalin copied Git's testsuite framework (<span class="commit-ref">aa9b1b9d</span>), establishing automated testing that would protect the codebase through decades of changes.
+            </p>
+
+            <div class="decision-box">
+                <h4>How to ensure StGit quality and prevent regressions?</h4>
+                <div class="options-list">
+                    <div class="option chosen">
+                        <span class="option-badge">Chosen</span>
+                        <div>Adopt git-core's proven test framework&mdash;shell-based tests that run actual stg commands</div>
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                The <code>goto</code> command also appeared in 0.10 (<span class="commit-ref">994fdba7</span>)&mdash;allowing direct navigation to any patch in the stack. Help output was classified by command category (<span class="commit-ref">5dc51fea</span>), improving discoverability.
+            </p>
+
+            <h3>The Long Tail: v0.11 - v0.22 (2006-2020)</h3>
+
+            <p>
+                Over the next 14 years, StGit evolved steadily. Each release addressed real-world pain points from kernel developers and other users:
+            </p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">v0.11 (2006)</div>
+                    <div class="timeline-title">Debian Packages & Series Rearranging</div>
+                    <div class="timeline-content">
+                        Official Debian packaging made StGit installable via <code>apt</code>. Series file editing allowed reordering patches with a text editor.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">v0.12</div>
+                    <div class="timeline-title">Branch Parent Configuration</div>
+                    <div class="timeline-content">
+                        Configurable parent branches for stacks, enabling more complex workflows.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">v0.13</div>
+                    <div class="timeline-title">mdiff for Range Comparison</div>
+                    <div class="timeline-content">
+                        Compare ranges of patches against their previous versions&mdash;crucial for reviewing revision series.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">v0.14</div>
+                    <div class="timeline-title">Binary File Handling</div>
+                    <div class="timeline-content">
+                        Proper handling of binary files in patches, expanding beyond text-only diffs. Addressed
+                        <a href="https://github.com/stacked-git/stgit/issues/112" class="gh-link gh-issue">#112: stg export errors on empty patches</a>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">v0.15</div>
+                    <div class="timeline-title">Pick --revert</div>
+                    <div class="timeline-content">
+                        Create revert patches from existing commits. Essential for bug fix workflows.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">v0.16</div>
+                    <div class="timeline-title">Deprecate stg status</div>
+                    <div class="timeline-content">
+                        Replaced with <code>git status -s</code> alias (<span class="commit-ref">aa99027f</span>). Philosophy: don't duplicate Git where unnecessary.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">v0.17</div>
+                    <div class="timeline-title">Python 2 Explicit</div>
+                    <div class="timeline-content">
+                        Required <code>python2</code> executable explicitly (<span class="commit-ref">97987532</span>), preparing for the Python 3 transition.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">v0.18</div>
+                    <div class="timeline-title">GitHub Migration</div>
+                    <div class="timeline-content">
+                        Migrated from gna.org to GitHub (<span class="commit-ref">f248e80e</span>). The project entered the modern era of issue tracking and pull requests.
+                        Early issues like <a href="https://github.com/stacked-git/stgit/issues/24" class="gh-link gh-issue">#24: branch names with slashes</a> and
+                        <a href="https://github.com/stacked-git/stgit/issues/61" class="gh-link gh-issue">#61: unhandled exceptions</a> began to be tracked.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">v0.19</div>
+                    <div class="timeline-title">Python 3 Support</div>
+                    <div class="timeline-content">
+                        First dual Python 2/3 support. Multi-version testing with tox (<span class="commit-ref">baf040bf</span>).
+                        Addressed <a href="https://github.com/stacked-git/stgit/issues/95" class="gh-link gh-issue">#95: Windows support</a> requests.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">v0.20</div>
+                    <div class="timeline-title">Shell Completions</div>
+                    <div class="timeline-content">
+                        Completion packages added to setup.py. Better command-line experience.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">v0.21</div>
+                    <div class="timeline-title">Python 3.8 Promoted</div>
+                    <div class="timeline-content">
+                        Python 3.8 prioritized in CI (<span class="commit-ref">8fc2c5cd</span>). stg log improvements.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">v0.22</div>
+                    <div class="timeline-title">Code Quality: isort</div>
+                    <div class="timeline-content">
+                        Applied isort linting (<span class="commit-ref">a7f96f69</span>). Completion improvements. The Python codebase was maturing.
+                    </div>
+                </div>
+            </div>
+
+            <h3>Notable Issues from Era 1</h3>
+
+            <p>GitHub Issues provided visibility into real-world usage patterns and pain points:</p>
+
+            <div class="issue-card">
+                <div class="issue-card-header">
+                    <a href="https://github.com/stacked-git/stgit/issues/24" class="gh-link gh-issue">#24</a>
+                    <span class="issue-card-title">Branch names containing slashes</span>
+                </div>
+                <div class="issue-card-body">
+                    Users working with git-flow style branches (feature/foo) encountered issues. Fixed by properly handling slash characters.
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-card-header">
+                    <a href="https://github.com/stacked-git/stgit/issues/78" class="gh-link gh-issue">#78</a>
+                    <span class="issue-card-title">Windows: WindowsError in repository.py</span>
+                </div>
+                <div class="issue-card-body">
+                    Windows support was challenging in Python era. Multiple file locking and path issues needed addressing.
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-card-header">
+                    <a href="https://github.com/stacked-git/stgit/issues/145" class="gh-link gh-issue">#145</a>
+                    <span class="issue-card-title">Performance: git diff-index expensive on stg new</span>
+                </div>
+                <div class="issue-card-body">
+                    Performance issues in the Python implementation. This would be one motivation for the eventual Rust rewrite.
+                </div>
+            </div>
+
+            <h3>Key Decisions Throughout Era 1</h3>
+
+            <div class="decision-box">
+                <h4>How to bring external patches into a stack?</h4>
+                <div class="options-list">
+                    <div class="option chosen">
+                        <span class="option-badge">Chosen</span>
+                        <div>Implement <code>stg import</code> with multiple format support: raw diff, mbox, URL</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="decision-box">
+                <h4>How to integrate upstream changes while preserving the patch stack?</h4>
+                <div class="options-list">
+                    <div class="option chosen">
+                        <span class="option-badge">Chosen</span>
+                        <div>Implement <code>stg pull</code> that automatically rebases the entire stack</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="decision-box">
+                <h4>Should StGit duplicate Git functionality or wrap it?</h4>
+                <div class="options-list">
+                    <div class="option chosen">
+                        <span class="option-badge">Chosen</span>
+                        <div>Delegate to Git where appropriate. Example: <code>stg status</code> became alias to <code>git status -s</code></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="decision-box">
+                <h4>How should StGit convert regular commits to patches?</h4>
+                <div class="options-list">
+                    <div class="option chosen">
+                        <span class="option-badge">Chosen</span>
+                        <div>Add <code>stg uncommit</code> command&mdash;peel commits off HEAD into patches (<span class="commit-ref">73e2d98e</span>)</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="decision-box">
+                <h4>How should StGit integrate with editors?</h4>
+                <div class="options-list">
+                    <div class="option chosen">
+                        <span class="option-badge">Chosen</span>
+                        <div>Create <code>stgit.el</code> Emacs mode (<span class="commit-ref">56d81fe5</span>)&mdash;maintained continuously to present day</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h4>Era 1 Summary</h4>
+                <p>
+                    In 15 years, Era 1 established StGit as the definitive patch stack tool. Starting from 2,871 lines of Python, it grew to a comprehensive system with 22 releases, supporting the Linux kernel's patch-email workflow. The architecture was stable, the test suite comprehensive, and the user base loyal.
+                </p>
+                <p>
+                    But Python was showing its age. Startup time was noticeable. The codebase had accumulated technical debt. And a new maintainer was about to ask: what if we rewrote it in Rust?
+                </p>
+            </div>
+        </section>
+
+        <!-- Era 2: Python Maturation -->
+        <section id="era2" class="era-2">
+            <h2><span class="era-badge">2020-2022</span> Era 2: Python Maturation</h2>
+
+            <p>
+                Between 2020 and 2022, StGit underwent significant modernization while still in Python. This era saw the project professionalize its processes, reach v1.0 after 15 years, and prepare the foundation for what would become the Rust rewrite.
+            </p>
+
+            <h3>Release v0.23: Project Modernization (October 2020)</h3>
+
+            <p>
+                CONTRIBUTING.md was added (<span class="commit-ref">91cf6737</span>), signaling a new focus on community growth. GitHub CI Actions replaced Travis CI (<span class="commit-ref">c2dfe597</span>). Black formatting was applied (<span class="commit-ref">cb053a02</span>). The Python codebase was being prepared for serious maintainership.
+            </p>
+
+            <div class="decision-box">
+                <h4>How should StGit prepare for Python 3 exclusively?</h4>
+                <div class="options-list">
+                    <div class="option chosen">
+                        <span class="option-badge">Chosen</span>
+                        <div>Modernize Python idioms systematically: new-style classes, modern exception syntax, 0o octal prefix, flake8 linting</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Release v1.0: First Major Version (February 2021)</h3>
+
+            <p>
+                After <strong>15+ years</strong> of 0.x releases, StGit finally reached v1.0. This wasn't a dramatic feature release&mdash;it was a statement of stability and maturity.
+            </p>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">v1.0 (February 2021)</div>
+                    <div class="timeline-title">First Major Version</div>
+                    <div class="timeline-content">
+                        Release checklist added (<span class="commit-ref">58f43d2c</span>). Import improvements prevented invalid/duplicate patch names (<span class="commit-ref">0e569fd4</span>). The version number reflected confidence in the API.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">v1.1 (March 2021)</div>
+                    <div class="timeline-title">Zsh Completions</div>
+                    <div class="timeline-content">
+                        Zsh completions joined bash. <code>-C</code> option added to import/fold (<span class="commit-ref">51ffa0b4</span>).
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">v1.2 (May 2021)</div>
+                    <div class="timeline-title">Stack Metadata v5</div>
+                    <div class="timeline-content">
+                        New stack metadata version (<span class="commit-ref">76417963</span>). <code>stgit.new.verbose</code> config option added.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">v1.3 (June 2021)</div>
+                    <div class="timeline-title">Autosign Fix</div>
+                    <div class="timeline-content">
+                        Regression fix for <code>stgit.autosign</code> configuration.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">v1.4 (October 2021)</div>
+                    <div class="timeline-title">Empty Patch Control</div>
+                    <div class="timeline-content">
+                        Disallow committing empty patches by default (<span class="commit-ref">8c3e7b21</span>).
+                        Addressed <a href="https://github.com/stacked-git/stgit/issues/158" class="gh-link gh-issue">#158: stg commit allows empty patches</a>.
+                        Safer workflows.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">v1.5 (January 2022)</div>
+                    <div class="timeline-title">Python 3.10 Support</div>
+                    <div class="timeline-content">
+                        Python 3.10 added to CI (<span class="commit-ref">cde32036</span>). Pick improvements. This would be the last pure Python release.
+                    </div>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h4>Era 2 Summary</h4>
+                <p>
+                    Era 2 transformed StGit from a mature tool into a professionally maintained project. CI/CD, code formatting, contribution guidelines, and a proper version scheme brought StGit into the modern development era. But even as v1.5 shipped, the Rust rewrite was already underway.
+                </p>
+            </div>
+        </section>
+
+        <!-- Era 3: Rust Rewrite -->
+        <section id="era3" class="era-3">
+            <h2><span class="era-badge">2022</span> Era 3: The Rust Rewrite</h2>
+
+            <p>
+                In 2021, Peter Grayson began what would become StGit's most ambitious transformation: a complete rewrite from Python to Rust. The goal wasn't just language migration&mdash;it was to make StGit faster, safer, and more maintainable for the next 20 years.
+            </p>
+
+            <div class="warning-box">
+                <h4>Why Rust?</h4>
+                <p>
+                    Python's startup overhead was noticeable when running many stg commands in scripts
+                    (see <a href="https://github.com/stacked-git/stgit/issues/145" class="gh-link gh-issue">#145</a>).
+                    Type safety was enforced only by discipline. Error handling was inconsistent. And the git2 library for Rust provided robust Git operations without shelling out to git commands.
+                </p>
+            </div>
+
+            <div class="decision-box">
+                <h4>How to rewrite StGit from Python to Rust?</h4>
+                <div class="options-list">
+                    <div class="option chosen">
+                        <span class="option-badge">Chosen</span>
+                        <div>Incremental hybrid approach using pyo3. Rust commands coexist with Python during transition.</div>
+                    </div>
+                    <div class="option rejected">
+                        <span class="option-badge">Not Chosen</span>
+                        <div>Full Rust rewrite from scratch&mdash;too risky, would lose feature parity for extended period</div>
+                    </div>
+                    <div class="option rejected">
+                        <span class="option-badge">Not Chosen</span>
+                        <div>Continue with Python&mdash;would not address fundamental performance and safety concerns</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>The Rewrite Timeline</h3>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">v2.0.0-alpha.1 (January 2022)</div>
+                    <div class="timeline-title">First Rust Alpha</div>
+                    <div class="timeline-content">
+                        The journey begins. Core commands reimplemented in Rust. Python still handles some operations. <span class="commit-ref">aeea854d</span>: Begin Rust reimplementation of StGit.
+                        Community interest in <a href="https://github.com/stacked-git/stgit/issues/283" class="gh-link gh-issue">#283: publishing to crates.io</a>.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">v2.0.0-alpha.2 (July 2022)</div>
+                    <div class="timeline-title">stg email format/send</div>
+                    <div class="timeline-content">
+                        Wrappers for <code>git format-patch</code> and <code>git send-email</code> with StGit patch name support (<span class="commit-ref">97ba3cad</span>). The mail workflow preserved.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">v2.0.0-beta.1 (July 2022)</div>
+                    <div class="timeline-title">Python Implementation REMOVED</div>
+                    <div class="timeline-content">
+                        The critical milestone. Python code deleted (<span class="commit-ref">13678392</span>). StGit is now 100% Rust. No turning back.
+                        Early bug reports like <a href="https://github.com/stacked-git/stgit/issues/192" class="gh-link gh-issue">#192: stg push fails</a> helped stabilize.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">v2.0.0-beta.2 (August 2022)</div>
+                    <div class="timeline-title">Stabilization</div>
+                    <div class="timeline-content">
+                        Bug fixes and polish. Clap 3.2 migration for future-proof CLI (<span class="commit-ref">9de4de48</span>).
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">v2.0.0-beta.3 (August 2022)</div>
+                    <div class="timeline-title">Git Compatibility</div>
+                    <div class="timeline-content">
+                        Ensured compatibility with various Git versions. Edge cases resolved.
+                        <a href="https://github.com/stacked-git/stgit/issues/202" class="gh-link gh-issue">#202: Emacs stgit mode issues</a> fixed.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">v2.0.0-rc.1 (September 2022)</div>
+                    <div class="timeline-title">Zero unsafe, clap 4.0</div>
+                    <div class="timeline-content">
+                        Updated to clap 4.0 (<span class="commit-ref">eb8a86d4</span>). Zero <code>unsafe</code> blocks in the codebase. Safety achieved.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">v2.0.0-rc.2 (October 2022)</div>
+                    <div class="timeline-title">Final Polish</div>
+                    <div class="timeline-content">
+                        Last release candidate. Address pedantic clippy lints (<span class="commit-ref">c99039f3</span>). Ready for release.
+                    </div>
+                </div>
+
+                <div class="timeline-item" style="border-color: var(--accent-green);">
+                    <div class="timeline-date" style="color: var(--accent-green);">v2.0.0 (November 2022)</div>
+                    <div class="timeline-title" style="color: var(--accent-green);">Complete Rust Rewrite Shipped!</div>
+                    <div class="timeline-content">
+                        <strong>1 year</strong> from start to finish. <strong>471 commits</strong>. <strong>Zero unsafe</strong> code. StGit reborn in Rust.
+                    </div>
+                </div>
+            </div>
+
+            <h3>Notable Issues During the Rewrite</h3>
+
+            <div class="issue-card">
+                <div class="issue-card-header">
+                    <a href="https://github.com/stacked-git/stgit/issues/195" class="gh-link gh-issue">#195</a>
+                    <span class="issue-card-title">Libgit2 and Stacked Git do not support sparse checkouts</span>
+                </div>
+                <div class="issue-card-body">
+                    Upstream limitation in libgit2 (used via git2 crate). This would later motivate the switch to gitoxide.
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-card-header">
+                    <a href="https://github.com/stacked-git/stgit/issues/240" class="gh-link gh-issue">#240</a>
+                    <span class="issue-card-title">Short command forms like "stg ser" no longer work in 2.x</span>
+                </div>
+                <div class="issue-card-body">
+                    Clap's strict command matching broke muscle-memory abbreviations. Fixed with explicit alias support.
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-card-header">
+                    <a href="https://github.com/stacked-git/stgit/issues/235" class="gh-link gh-issue">#235</a>
+                    <span class="issue-card-title">How to update old branches with metadata version 4</span>
+                </div>
+                <div class="issue-card-body">
+                    Migration path needed for users with old stack metadata. Documented upgrade procedures.
+                </div>
+            </div>
+
+            <h3>Key Technical Decisions in the Rewrite</h3>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h5>clap for CLI</h5>
+                    <p>Command-line parsing with clap. Type-safe argument handling. Automatic help generation.</p>
+                </div>
+                <div class="feature-card">
+                    <h5>git2 crate</h5>
+                    <p>Rust bindings to libgit2. Direct Git operations without shelling out. Faster and safer.</p>
+                </div>
+                <div class="feature-card">
+                    <h5>Zero unsafe</h5>
+                    <p>No <code>unsafe</code> blocks in the StGit codebase. Memory safety guaranteed by the compiler.</p>
+                </div>
+                <div class="feature-card">
+                    <h5>Typed Arguments</h5>
+                    <p>Patch names, ranges, and specifiers are now strongly typed. Compile-time correctness.</p>
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h4>Era 3 Summary</h4>
+                <p>
+                    The Rust rewrite was a triumph of incremental migration. By maintaining feature parity throughout and using a hybrid pyo3 approach, Peter Grayson delivered a complete language migration in under a year. The result: a faster, safer, more maintainable StGit ready for the next two decades.
+                </p>
+            </div>
+        </section>
+
+        <!-- Era 4: Rust Maintenance and Evolution -->
+        <section id="era4" class="era-4">
+            <h2><span class="era-badge">2022-Present</span> Era 4: Rust Maintenance & Evolution</h2>
+
+            <p>
+                With the Rust foundation in place, Era 4 has focused on refinement, new features, and keeping StGit current with the Rust ecosystem. In just 3 years, there have been <strong>886 commits</strong> and <strong>35 releases</strong>&mdash;more than all of Era 1.
+            </p>
+
+            <h3>Post-Rewrite Stabilization (v2.0.1 - v2.0.4)</h3>
+
+            <p>
+                The first months after v2.0.0 focused on catching edge cases and ensuring the Rust implementation matched Python's behavior exactly. Issues like
+                <a href="https://github.com/stacked-git/stgit/issues/256" class="gh-link gh-issue">#256: author set to gitoxide</a> and
+                <a href="https://github.com/stacked-git/stgit/issues/273" class="gh-link gh-issue">#273: Windows errors</a> drove rapid iteration.
+            </p>
+
+            <h3>v2.1.0: Configurable Conflict Policy (December 2022)</h3>
+
+            <p>
+                The first feature release post-rewrite. Configurable conflict resolution policies gave users control over how StGit handles merge conflicts during push operations.
+                This addressed <a href="https://github.com/stacked-git/stgit/issues/212" class="gh-link gh-issue">#212: stg rebase conflict handling</a>.
+            </p>
+
+            <div class="decision-box">
+                <h4>Should StGit switch from git2 to gitoxide?</h4>
+                <p>gitoxide is a pure-Rust Git implementation under active development.</p>
+                <div class="options-list">
+                    <div class="option chosen">
+                        <span class="option-badge">Chosen in v2.2.0</span>
+                        <div>Adopt gitoxide (<span class="commit-ref">054edb2c</span>). Pure Rust dependencies, no C library overhead. Addressed <a href="https://github.com/stacked-git/stgit/issues/195" class="gh-link gh-issue">#195</a> limitations.</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>v2.2.0: gitoxide Adoption (February 2023)</h3>
+
+            <p>
+                A significant architectural change. StGit migrated from git2 (Rust bindings to libgit2, a C library) to gitoxide (pure Rust Git implementation). This removed the last non-Rust dependency and improved build portability.
+            </p>
+
+            <h3>v2.3.0: Official Packages (Mid 2023)</h3>
+
+            <p>
+                Official deb, rpm, and msi packages published.
+                Addressed <a href="https://github.com/stacked-git/stgit/issues/324" class="gh-link gh-issue">#324: more .deb versions needed</a>.
+                StGit became installable on Debian, RedHat/Fedora derivatives, and Windows without building from source.
+            </p>
+
+            <h3>v2.4.0: After a 1-Year Gap (Late 2024)</h3>
+
+            <p>
+                After a longer development cycle, v2.4.0 brought accumulated improvements and dependency updates.
+                Fixed <a href="https://github.com/stacked-git/stgit/issues/471" class="gh-link gh-issue">#471: stg import --reject broken</a>.
+            </p>
+
+            <h3>v2.5.0: New Year 2025 Release (January 2025)</h3>
+
+            <p>
+                New <code>name</code> subcommand for patch renaming
+                (<a href="https://github.com/stacked-git/stgit/pull/513" class="gh-link gh-pr">PR #513</a>).
+                <code>stg rebase</code> can now be called without arguments
+                (<a href="https://github.com/stacked-git/stgit/pull/507" class="gh-link gh-pr">PR #507</a>).
+                Commands organized by group in help output
+                (<a href="https://github.com/stacked-git/stgit/pull/514" class="gh-link gh-pr">PR #514</a>).
+            </p>
+
+            <h3>v2.5.5: Current Latest (November 2025)</h3>
+
+            <p>
+                Squash improvements preserving consensus authors
+                (<a href="https://github.com/stacked-git/stgit/issues/490" class="gh-link gh-issue">#490</a>).
+                Continuous stgit.el Emacs mode updates
+                (<a href="https://github.com/stacked-git/stgit/pull/536" class="gh-link gh-pr">PR #536</a>,
+                <a href="https://github.com/stacked-git/stgit/pull/552" class="gh-link gh-pr">PR #552</a>,
+                <a href="https://github.com/stacked-git/stgit/pull/573" class="gh-link gh-pr">PR #573</a>).
+                gix (gitoxide) updated to 0.74.
+            </p>
+
+            <h3>Continuous stgit.el Maintenance</h3>
+
+            <p>
+                Throughout Era 4, the Emacs integration (<code>stgit.el</code>) has received continuous attention, driven by issues like
+                <a href="https://github.com/stacked-git/stgit/issues/521" class="gh-link gh-issue">#521: stgit.el update</a> and
+                <a href="https://github.com/stacked-git/stgit/issues/560" class="gh-link gh-issue">#560: Emacs backwards compatibility</a>:
+            </p>
+
+            <ul>
+                <li>Migrated to <code>with-eval-after-load</code> from deprecated patterns</li>
+                <li>Switched from <code>defadvice</code> to <code>advice-add</code></li>
+                <li>Fixed checkdoc warnings</li>
+                <li>Enabled lexical-binding</li>
+                <li>Support for Emacs versions &lt; 31</li>
+                <li>Proper <code>--no-color</code> flag handling</li>
+            </ul>
+
+            <h3>Recent and Upcoming Work</h3>
+
+            <p>Active development continues with PRs for new features:</p>
+
+            <div class="issue-card">
+                <div class="issue-card-header">
+                    <a href="https://github.com/stacked-git/stgit/pull/608" class="gh-link gh-pr">PR #608</a>
+                    <span class="issue-card-title">Add --exec option for running commands during rebase</span>
+                </div>
+                <div class="issue-card-body">
+                    Run commands after each patch during rebase, similar to git rebase --exec.
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-card-header">
+                    <a href="https://github.com/stacked-git/stgit/pull/601" class="gh-link gh-pr">PR #601</a>
+                    <span class="issue-card-title">Add stg branch --reset command</span>
+                </div>
+                <div class="issue-card-body">
+                    Soft reset the stack to a clean state. In development.
+                </div>
+            </div>
+
+            <div class="issue-card">
+                <div class="issue-card-header">
+                    <a href="https://github.com/stacked-git/stgit/issues/591" class="gh-link gh-issue">#591</a>
+                    <span class="issue-card-title">stg new --fixup &lt;patch&gt;</span>
+                </div>
+                <div class="issue-card-body">
+                    Feature request: Create fixup patches more easily. Active discussion.
+                </div>
+            </div>
+
+            <div class="insight-box">
+                <h4>Era 4 Velocity</h4>
+                <table class="version-table">
+                    <tr>
+                        <th>Metric</th>
+                        <th>Era 1 (15 years)</th>
+                        <th>Era 4 (3 years)</th>
+                    </tr>
+                    <tr>
+                        <td>Releases</td>
+                        <td>22</td>
+                        <td>35</td>
+                    </tr>
+                    <tr>
+                        <td>Commits</td>
+                        <td>~1,200</td>
+                        <td>~886</td>
+                    </tr>
+                    <tr>
+                        <td>Releases/Year</td>
+                        <td>1.5</td>
+                        <td>11.7</td>
+                    </tr>
+                </table>
+                <p>The Rust codebase enables dramatically faster iteration. Monthly releases are now common.</p>
+            </div>
+        </section>
+
+        <!-- Contributors -->
+        <section id="contributors">
+            <h2>The People Behind StGit</h2>
+
+            <p>
+                StGit's 21-year history is remarkable not just for its technical evolution, but for the continuity of its maintainership. Just two primary maintainers have guided the project across two decades.
+            </p>
+
+            <h3>The Maintainers</h3>
+
+            <div class="contributors-grid">
+                <div class="contributor-card">
+                    <div class="contributor-avatar" style="background: var(--accent-orange);">CM</div>
+                    <div class="contributor-info">
+                        <h5>Catalin Marinas</h5>
+                        <p>Founder, 554 commits</p>
+                    </div>
+                </div>
+                <div class="contributor-card">
+                    <div class="contributor-avatar" style="background: var(--accent-green);">PG</div>
+                    <div class="contributor-info">
+                        <h5>Peter Grayson</h5>
+                        <p>Current maintainer, 1,862 commits</p>
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                <strong>Catalin Marinas</strong> created StGit in 2005 while working on ARM Linux kernel development. He maintained the project through Era 1, establishing the core concepts and API that persist today.
+            </p>
+
+            <p>
+                <strong>Peter Grayson</strong> took over maintainership and led the Rust rewrite. His 1,862 commits represent over half of all StGit development, including the complete Era 3 and Era 4 work.
+            </p>
+
+            <h3>Key Contributors</h3>
+
+            <div class="contributors-grid">
+                <div class="contributor-card">
+                    <div class="contributor-avatar">KW</div>
+                    <div class="contributor-info">
+                        <h5>Karl Wiberg</h5>
+                        <p>343 commits</p>
+                    </div>
+                </div>
+                <div class="contributor-card">
+                    <div class="contributor-avatar">GH</div>
+                    <div class="contributor-info">
+                        <h5>Gustav Hållberg</h5>
+                        <p>188 commits</p>
+                    </div>
+                </div>
+                <div class="contributor-card">
+                    <div class="contributor-avatar">YD</div>
+                    <div class="contributor-info">
+                        <h5>Yann Dirson</h5>
+                        <p>140 commits</p>
+                    </div>
+                </div>
+                <div class="contributor-card">
+                    <div class="contributor-avatar">DK</div>
+                    <div class="contributor-info">
+                        <h5>David Kågedal</h5>
+                        <p>70 commits</p>
+                    </div>
+                </div>
+                <div class="contributor-card">
+                    <div class="contributor-avatar">CL</div>
+                    <div class="contributor-info">
+                        <h5>Chuck Lever</h5>
+                        <p>62 commits</p>
+                    </div>
+                </div>
+                <div class="contributor-card">
+                    <div class="contributor-avatar">TB</div>
+                    <div class="contributor-info">
+                        <h5>Topher Brown</h5>
+                        <p>29 commits</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>The Two-Maintainer Model</h3>
+
+            <p>
+                What's remarkable about StGit's history is the continuity. Unlike many open-source projects that cycle through maintainers every few years, StGit has had essentially two maintainers in 21 years. This has resulted in:
+            </p>
+
+            <ul>
+                <li><strong>Consistent vision</strong>: The patch stack philosophy remains unchanged from 2005</li>
+                <li><strong>Stable API</strong>: Commands added in Era 1 still work identically in Era 4</li>
+                <li><strong>Deep knowledge</strong>: Maintainers understand every corner of the codebase</li>
+                <li><strong>Trust</strong>: The community knows who stands behind the tool</li>
+            </ul>
+        </section>
+
+        <!-- Conclusion -->
+        <section id="conclusion">
+            <h2>Conclusion: 21 Years and Counting</h2>
+
+            <p>
+                Stacked Git is a rare example of open-source longevity. Born from the practical needs of kernel development, it has evolved while staying true to its original purpose: making patch-based workflows manageable.
+            </p>
+
+            <p>
+                The decision graph you can explore captures every major choice, every release, and every architectural shift. From Python to Rust, from gna.org to GitHub, from v0.4 to v2.5.5&mdash;the history is preserved.
+            </p>
+
+            <p>
+                StGit continues to serve developers who need the precision of patch stacks. Whether you're maintaining Linux kernel drivers, developing for Chromium, or managing any complex series of changes, the tool Catalin Marinas created in 2005 remains relevant today.
+            </p>
+
+            <div class="insight-box">
+                <h4>Explore the Full Decision Graph</h4>
+                <p>
+                    This story is derived from a comprehensive decision graph with <strong>416 nodes</strong> and <strong>495 edges</strong>, tracing every major decision, action, and outcome in StGit's history. Click below to explore the interactive visualization.
+                </p>
+                <p style="text-align: center; margin-top: 20px;">
+                    <a href="index.html" class="view-graph-btn" style="font-size: 1.1rem; padding: 12px 24px;">View Interactive Decision Graph</a>
+                </p>
+            </div>
+
+            <h3>Links & Resources</h3>
+
+            <ul>
+                <li><a href="https://github.com/stacked-git/stgit">StGit on GitHub</a></li>
+                <li><a href="https://stacked-git.github.io">StGit Homepage & Documentation</a></li>
+                <li><a href="https://github.com/stacked-git/stgit/issues">Issue Tracker</a> (600+ issues)</li>
+                <li><a href="https://github.com/stacked-git/stgit/pulls">Pull Requests</a></li>
+                <li><a href="https://crates.io/crates/stgit">stgit on crates.io</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            This history was reconstructed using <a href="https://github.com/notactuallytreyanastasio/deciduous">Deciduous</a>,
+            a decision graph tool for AI-assisted development.
+        </p>
+        <p>
+            <a href="https://github.com/stacked-git/stgit">StGit on GitHub</a> &bull;
+            <a href="https://stacked-git.github.io">StGit Homepage</a>
+        </p>
+    </footer>
+</body>
+</html>

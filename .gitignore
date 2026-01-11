@@ -2,3 +2,6 @@
 /completion/stgit.bash
 /htmlcov
 /target
+
+# Deciduous database (local)
+.deciduous/

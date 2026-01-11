@@ -1,0 +1,2562 @@
+[
+  {
+    "hash": "430027d67dda84b21fb892660cdbcdaed3bf2a08",
+    "short_hash": "430027d",
+    "author": "Bobby Nathan",
+    "date": "2025-12-11T21:40:24-05:00",
+    "message": "chore: do rust more idiomatically, clean up language still referencing the non-rollback behaviour",
+    "files_changed": 4
+  },
+  {
+    "hash": "327d1dbed318a21b96d8234b6ee11e58efe442cc",
+    "short_hash": "327d1db",
+    "author": "Peter Grayson",
+    "date": "2023-02-24T16:36:10-05:00",
+    "message": "chore: update changelog for 2.2.0",
+    "files_changed": 3
+  },
+  {
+    "hash": "35a9822ba130613b7ae88d241df48556aaff01b3",
+    "short_hash": "35a9822",
+    "author": "Peter Grayson",
+    "date": "2022-12-12T11:17:03-05:00",
+    "message": "chore: Update changelog for 2.1.0",
+    "files_changed": 3
+  },
+  {
+    "hash": "c99039f3ff0620fca9eaf233c0de0044509e56a8",
+    "short_hash": "c99039f",
+    "author": "Peter Grayson",
+    "date": "2022-11-07T21:52:06-05:00",
+    "message": "chore: Address pedantic clippy lints",
+    "files_changed": 38
+  },
+  {
+    "hash": "eb8a86d497490772ce60b10b5bb78ad761541435",
+    "short_hash": "eb8a86d",
+    "author": "Peter Grayson",
+    "date": "2022-11-07T19:28:25-05:00",
+    "message": "chore: Update to clap 4.0.22",
+    "files_changed": 1
+  },
+  {
+    "hash": "d9e2ce90abd41260cabd99ed85b8b9ce604ec616",
+    "short_hash": "d9e2ce9",
+    "author": "Peter Grayson",
+    "date": "2022-11-07T16:22:15-05:00",
+    "message": "chore: Update changelog for 2.0.1 release",
+    "files_changed": 3
+  },
+  {
+    "hash": "1a46d8af185664e6e74eb177dfa01222023971bd",
+    "short_hash": "1a46d8a",
+    "author": "Peter Grayson",
+    "date": "2022-10-11T09:05:29-04:00",
+    "message": "chore: Update changelog for v2.0.0-rc.2",
+    "files_changed": 3
+  },
+  {
+    "hash": "22aa8965d5aab874e26667e80580ec7e81a29603",
+    "short_hash": "22aa896",
+    "author": "Peter Grayson",
+    "date": "2022-09-30T11:39:21-04:00",
+    "message": "changelog-rc1",
+    "files_changed": 3
+  },
+  {
+    "hash": "a32891b46e04129ef3a42aab4e4ed9c76c1773a7",
+    "short_hash": "a32891b",
+    "author": "Peter Grayson",
+    "date": "2022-09-13T12:00:08-04:00",
+    "message": "chore: Update changelog for v2.0.0 release",
+    "files_changed": 3
+  },
+  {
+    "hash": "6d09a0010542f050247dab487e78a89e91c73e66",
+    "short_hash": "6d09a00",
+    "author": "Peter Grayson",
+    "date": "2022-08-28T19:49:18-04:00",
+    "message": "Update changelog for v2.0.0-beta.3",
+    "files_changed": 3
+  },
+  {
+    "hash": "1d829904702be42f057e89686cfc07e7051d7b05",
+    "short_hash": "1d82990",
+    "author": "Peter Grayson",
+    "date": "2022-08-05T18:43:32-04:00",
+    "message": "Update changelog for 2.0.0-beta.2 release",
+    "files_changed": 3
+  },
+  {
+    "hash": "9de4de483c8d04868655983e4caba27fb0869f2a",
+    "short_hash": "9de4de4",
+    "author": "Peter Grayson",
+    "date": "2022-08-05T13:39:45-04:00",
+    "message": "Use clap 3.2 and use only non-deprecated interfaces\n\nclap 3.2 introduces several new interfaces that are backported from the\nupcoming clap 4.0 branch. Many of these new interfaces deprecate\nsimilar/equivalent intefaces.\n\nStGit is updated to require clap 3.2 and to use only non-deprecated\ninterfaces.\n\nclap::Arg::value_parser() and the corresponding clap::ArgMatches::get_one()\ninterface, which are new in 3.2, have the most impact to StGit.\nCollectively they provide typed argument values. Within StGit, patch names\nand patch ranges are the most common argument values to deal with. The\npatchrange module is updated to take advantage of typed command line\narguments by introducing the patchrange::Specification type and associated\nFromStr impl.\n\nThese changes should significantly ease the path to clap 4.0.",
+    "files_changed": 56
+  },
+  {
+    "hash": "02c7ed821b1f2ad2cb60d663acafb2e21127401e",
+    "short_hash": "02c7ed8",
+    "author": "Peter Grayson",
+    "date": "2022-07-28T12:02:09-04:00",
+    "message": "update-changelog",
+    "files_changed": 3
+  },
+  {
+    "hash": "7b3c65e45db5c8cb353d55bd0b03131562ad049a",
+    "short_hash": "7b3c65e",
+    "author": "Peter Grayson",
+    "date": "2022-07-06T14:26:32-04:00",
+    "message": "Update changelog for 2.0.0-alpha.2\n\nAlso add a bullet for the new alias system in the 2.0.0-alpha.0 notes.",
+    "files_changed": 3
+  },
+  {
+    "hash": "97ba3cada6d08e699d9710d1e444c460c82aec55",
+    "short_hash": "97ba3ca",
+    "author": "Peter Grayson",
+    "date": "2022-06-22T16:36:33-04:00",
+    "message": "Add `stg email format` and `stg email send`\n\nThese commands are wrappers for `git format-patch` and `git send-email`,\nwith the key feature of allowing patch names from the StGit series to be\nspecified on their command lines.\n\nA subset of these commands' options, hopefully the most useful ones, are\nexposed directly by `stg email` such that they are documented for StGit\nusers. Other options for `git format-patch` and `git send-email` may still\nbe passed at the end of the command line, after a '--' separator.\n\nN.B. `git send-email`'s various '--smtp-*' options were intentially\nexcluded from `stg email send` with the hope that users will statically\nconfigure SMTP via `git config`.\n\nCompat:\n- Mail aliases are now handled with `git send-email`'s mechanism, i.e. the\n  `sendemail.aliasesfile` configuration variable. The old `mail.alias.*`\n  configuration is no longer used.",
+    "files_changed": 5
+  },
+  {
+    "hash": "cde320366a8a058ab395c650cee3a1606808a7db",
+    "short_hash": "cde3203",
+    "author": "Peter Grayson",
+    "date": "2022-01-28T14:28:31-05:00",
+    "message": "Add python3.10 to pkgtest.py\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 1
+  },
+  {
+    "hash": "03fc757c4255bfd445cdbc2a62ca3b02a65beba5",
+    "short_hash": "03fc757",
+    "author": "Peter Grayson",
+    "date": "2022-01-28T14:23:48-05:00",
+    "message": "Update changelog for v1.5\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 1
+  },
+  {
+    "hash": "48258d298f11a3bba690f622132058eccccf4601",
+    "short_hash": "48258d2",
+    "author": "Peter Grayson",
+    "date": "2022-01-08T23:02:20-05:00",
+    "message": "Update changelog for 2.0.0-alpha.0 and alpha.1",
+    "files_changed": 1
+  },
+  {
+    "hash": "e80014cdf941fce8457c2653c720f86171f4fab6",
+    "short_hash": "e80014c",
+    "author": "Peter Grayson",
+    "date": "2021-11-06T09:50:30-04:00",
+    "message": "Proper implementation for `stg id`\n\nThe user-provided StGit revision is parsed\n\nAdd -b/--branch option for id. This is a new feature compared to the\nPython version.\n\nAnother difference vs Python version: the provided revspec is not always\npeeled to a commit object. This specifically affects the output of\nannotated tags where, e.g. `stg id v1.3` shows the id of the commit the\ntag points to where as `git rev-parse v1.3` shows the id of the tag\nitself.",
+    "files_changed": 6
+  },
+  {
+    "hash": "da69279d1c2b4b4a02612153c73d4a3273d62997",
+    "short_hash": "da69279",
+    "author": "Peter Grayson",
+    "date": "2021-11-04T18:12:38-04:00",
+    "message": "Transaction is baked enough for `stg new` to work",
+    "files_changed": 4
+  },
+  {
+    "hash": "16a65055f92497b035d866fa4b39d1786c4f4b8c",
+    "short_hash": "16a6505",
+    "author": "Peter Grayson",
+    "date": "2021-11-03T09:53:43-04:00",
+    "message": "Rename StackTransaction.execute()\n\nThe new name matches the verbiage in the doc strings and disambiguates\nit from the many other run() methods that run subordinate processes\n(e.g. git processes).\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 24
+  },
+  {
+    "hash": "3ee9d485ea4eef86710c214d901eb9fa99dfc431",
+    "short_hash": "3ee9d48",
+    "author": "Peter Grayson",
+    "date": "2021-11-01T22:54:16-04:00",
+    "message": "Make all StackTransaction arguments required\n\nThis is a transition move toward the goal of moving bad head and clean\niw checks out of StackTransaction.__init__(). Making all of arugments\nrequired lets us explicitly spell-out how each command uses\nallow_bad_head and check_clean_iw. The next step is to perform those\nchecks, when required, prior to initializing the StackTransaction.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 24
+  },
+  {
+    "hash": "262b2fc5b533f6f609c43a6f543c9d0d185b8f55",
+    "short_hash": "262b2fc",
+    "author": "Peter Grayson",
+    "date": "2021-10-27T09:40:56-04:00",
+    "message": "Update changelog for v1.4\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 1
+  },
+  {
+    "hash": "8c3e7b2179e922d8eefa6fdcd12bd4c5e6c41d0c",
+    "short_hash": "8c3e7b2",
+    "author": "Peter Grayson",
+    "date": "2021-10-25T11:29:36-04:00",
+    "message": "Disallow committing empty patches by default\n\n`stg commit` now refuses to commit empty patches by default, but also\nlearns the --allow-empty flag, which mirrors `git commit --allow-empty`,\nto override this behavior.\n\nAddresses #158\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 3
+  },
+  {
+    "hash": "8eed48c36fe25e17db5cc3b382a7a72332835163",
+    "short_hash": "8eed48c",
+    "author": "Peter Grayson",
+    "date": "2021-10-15T10:18:32-04:00",
+    "message": "Implement stg init",
+    "files_changed": 5
+  },
+  {
+    "hash": "f3b8462cc3e9c9173c5ed45f2e4168476a295d4e",
+    "short_hash": "f3b8462",
+    "author": "Peter Grayson",
+    "date": "2021-10-15T10:18:28-04:00",
+    "message": "Implement stg series\n\nMany features implemented.\n\nTODO:\n- patch ranges\n- --missing\n- --show-branch",
+    "files_changed": 7
+  },
+  {
+    "hash": "5fa0e759574b58b89e258dd756cf6519ef269436",
+    "short_hash": "5fa0e75",
+    "author": "Peter Grayson",
+    "date": "2021-10-15T10:18:25-04:00",
+    "message": "Use git2 crate",
+    "files_changed": 2
+  },
+  {
+    "hash": "54929777d43e3241290a4ac2efedf619573e92c4",
+    "short_hash": "5492977",
+    "author": "Peter Grayson",
+    "date": "2021-10-15T10:02:40-04:00",
+    "message": "Use clap for command line argument parsing\n\nClap's imperitive style is used instead of the derive style. This makes\nit easier for subcommands to share both definition and handling of\ncommon arguments.",
+    "files_changed": 48
+  },
+  {
+    "hash": "aeea854d2a69eda1ab3faa50b7b2ef6415f71a96",
+    "short_hash": "aeea854",
+    "author": "Peter Grayson",
+    "date": "2021-10-15T09:53:08-04:00",
+    "message": "Begin rust reimplementation of StGit\n\nInitial approach: use pyo3 to punt unimplemented subcommands to their\nPython implementations. Progressively add rust implementations of\nsubcommands until no Python remains.\n\nRun test suite with rust binary with `make STG_RUST=1 test`.",
+    "files_changed": 6
+  },
+  {
+    "hash": "0061af852bc83940ec48a3a4a5781086dc4ee811",
+    "short_hash": "0061af8",
+    "author": "Peter Grayson",
+    "date": "2021-10-08T18:28:09-04:00",
+    "message": "Add `stg import --message-id` option\n\nThe new --message-id option enables capturing the Message-ID header as\nthe Message-Id trailer when importing patches from emails. The\nMessage-ID is no longer captured by default. I.e. StGit's default\nbehavior reverts to as it was before v1.2.\n\nThe new stgit.import.messageid config option may be set to enable this\nbehavior by default.\n\nPartially addresses #42.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 3
+  },
+  {
+    "hash": "0602262ac672e75a04f8e198cea086fec3ad12f8",
+    "short_hash": "0602262",
+    "author": "Peter Grayson",
+    "date": "2021-10-08T17:43:11-04:00",
+    "message": "Add Python 3.10 to CI\n\nPython 3.10.0 was just released. Start testing it.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 1
+  },
+  {
+    "hash": "951e8f81b5a425e2b3a6a8887879d6350e9d1c82",
+    "short_hash": "951e8f8",
+    "author": "Peter Grayson",
+    "date": "2021-10-08T16:19:40-04:00",
+    "message": "Repair crash in stg squash (#157)\n\nAttempting to squash two patches out of order without also specifying a\nname on the command line would cause new_commit_data to be None which\nwould then trigger an exception when trying to derive the new patch name\nfrom the non-existent commit data.\n\nThe issue is resolved by making _squash_patches() responsible for\ndetermining the new squashed patch name since it possesses the necessary\ncommit data at the appropriate moment.\n\nRepairs #157.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 1
+  },
+  {
+    "hash": "05900351a9ec7b774931a2a59c15c9f0b6d443f6",
+    "short_hash": "0590035",
+    "author": "Peter Grayson",
+    "date": "2021-09-26T21:34:05-04:00",
+    "message": "Update changelog for v1.3\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 1
+  },
+  {
+    "hash": "ae9ca309e3af530ab4d3f832652f15d73bac3d62",
+    "short_hash": "ae9ca30",
+    "author": "Peter Grayson",
+    "date": "2021-09-26T18:48:41-04:00",
+    "message": "Repair regression with stgit.autosign\n\nUse of the stgit.autosign config option triggered a bug in v1.2. This\nrepairs the problem and adds test coverage.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 2
+  },
+  {
+    "hash": "7a0760dca38ef9e6513572c51132bea039551bdf",
+    "short_hash": "7a0760d",
+    "author": "Peter Grayson",
+    "date": "2021-09-24T09:13:26-04:00",
+    "message": "Update changelog for v1.2\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 1
+  },
+  {
+    "hash": "7641796356f0e22058659a7dc9a33acc201d06b5",
+    "short_hash": "7641796",
+    "author": "Peter Grayson",
+    "date": "2021-08-27T19:10:36-04:00",
+    "message": "Stack metadata version 5\n\nStack metadata is now kept in refs/stacks/<branch> instead of\nrefs/heads/<branch>.stgit. The rationale:\n\n- StGit's metadata branch is an implementation detail that leaks to\n  users whenever git branches are inspected.\n- `git log --branches` and other views of the commit DAG can become\n  extremely cluttered when the stack metadata branch enters the picture.\n  Avoiding refs/heads solves this problem.\n- There is a nice symmetry between refs/patches/<branch> and\n  refs/heads/<branch>.\n- Distributed use (push, pull, clone) of stack metadata is not\n  significantly different with the new ref.\n\nAnd the stack metadata file format is now JSON instead of the former\ncustom format.\n\n- Can use off-the-shelf JSON parser and serializer from Python standard\n  library. Fast, easy, and less surface area for bugs.\n- Stack metadata becomes more accessible to third-party tools, scripts,\n  and programming languages.\n- JSON format allows for additional metadata to be associated with\n  each patch and/or the entire stack. This may be useful for advanced\n  features such as patch guards.\n- The stack.json file remains at least as human-readable as the old meta\n  file. Line-oriented diffs also remain effective.\n\nResolves #65.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 11
+  },
+  {
+    "hash": "d5bef96e847b50bd436725fa3b102f0c41b56bae",
+    "short_hash": "d5bef96",
+    "author": "Topher Brown",
+    "date": "2021-08-25T16:15:39-04:00",
+    "message": "'stg rebase --interactive' learns 'hide' instruction",
+    "files_changed": 4
+  },
+  {
+    "hash": "fe461758f397688928ae2eefd325aa797749d580",
+    "short_hash": "fe46175",
+    "author": "Topher Brown",
+    "date": "2021-06-27T02:19:46-04:00",
+    "message": "Add --verbose option to 'stg new'",
+    "files_changed": 4
+  },
+  {
+    "hash": "150ec62f0f3d74abc73dc908ccc40f59c5c50715",
+    "short_hash": "150ec62",
+    "author": "Topher Brown",
+    "date": "2021-06-24T01:14:35-04:00",
+    "message": "Rearchitect squash edit message to include all commits.\n\nResolves #71.\n\nThis change makes stgit's squash behavior mirror git's behavior, which should\nbe nice for people coming from vanilla 'git'.\n\nBreaking change(?): Users now need to manually remove undesired messages from\nsquashed patches.",
+    "files_changed": 1
+  },
+  {
+    "hash": "e217ebb8dd34c6ed2f65afd934699f6aaf2175ec",
+    "short_hash": "e217ebb",
+    "author": "Topher Brown",
+    "date": "2021-06-06T12:16:55-04:00",
+    "message": "Add --interactive option to rebase\n\n`stg rebase --interactive` is a new tool which mirrors `git rebase\n--interactive`.\n\nUsing an editor `--interactive` lets the user [reorder\npatches](https://asciinema.org/a/421486), [squash patch\nchains](https://asciinema.org/a/421488), or [delete individual\npatches](https://asciinema.org/a/421487) (links go to recordings showing\nthese features!).\n\nFurther instructions could be added but this seemed like a good base\nset. I've been using this locally and it helps execute certain sets of\ncommands much faster! Tests are included.\n\nSigned-off-by: Topher Brown <topher@memfault.com>",
+    "files_changed": 5
+  },
+  {
+    "hash": "51ffa0b4382264b37fbb9b9742f61a5b3252719c",
+    "short_hash": "51ffa0b",
+    "author": "Peter Grayson",
+    "date": "2021-04-26T15:19:28-04:00",
+    "message": "Add -C option to stg import and stg fold\n\nThis option maps to the -C option of `git apply` to select the amount of\nsurrounding context to ensure when an external patch is applied.\n\nResolves #18.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 6
+  },
+  {
+    "hash": "68f949852ab7f0e8bb52c6a6fc2ece2a74ded824",
+    "short_hash": "68f9498",
+    "author": "Peter Grayson",
+    "date": "2021-04-24T20:48:26-04:00",
+    "message": "Update changelog for v1.1 release\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 1
+  },
+  {
+    "hash": "640ac412aa685472711a31a9e5f3a71646cbc17b",
+    "short_hash": "640ac41",
+    "author": "Marcel Jackwerth",
+    "date": "2021-04-21T11:46:42+02:00",
+    "message": "Add support for core.hooksPath",
+    "files_changed": 1
+  },
+  {
+    "hash": "6af99af232c90d1629ac71be500eef2241245c81",
+    "short_hash": "6af99af",
+    "author": "Peter Grayson",
+    "date": "2021-03-29T22:45:12-04:00",
+    "message": "Add --diff-opts option to refresh\n\nThis goes along with the recently added --diff option to allow the diff\nview to be customized.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 2
+  },
+  {
+    "hash": "34b58820516c8f1657bb8695dd6be98046a84543",
+    "short_hash": "34b5882",
+    "author": "Abhinav Gupta",
+    "date": "2021-03-19T10:28:09-07:00",
+    "message": "refresh: Support --diff with --edit\n\nAdd a `--diff` flag to `stg refresh` that, when used with `--edit`, is\nequivalent to `stg edit --diff`.\n\nResolves #98",
+    "files_changed": 2
+  },
+  {
+    "hash": "b922a52c66e09c3cba63275cd05abfeeab577adf",
+    "short_hash": "b922a52",
+    "author": "Peter Grayson",
+    "date": "2021-02-15T17:16:05-05:00",
+    "message": "Allow importing mail and series from urls (#94)\n\nFormerly `stg import -u` would only import a single patch file. It may now\nbe combined with -m/--mail, -M/--mbox, or -s/--series to import mail, mbox,\nor series tarballs from the specified url.\n\nN.B. only tarball series will work with -s for fairly obvious reasons.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 3
+  },
+  {
+    "hash": "11aa5944459e464a96f41d934e23da5320c13333",
+    "short_hash": "11aa594",
+    "author": "Peter Grayson",
+    "date": "2021-02-07T22:34:18-05:00",
+    "message": "Update changelog for 1.0\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 1
+  },
+  {
+    "hash": "58f43d2c8fdc3b8042ef0c0d26042d41cccca788",
+    "short_hash": "58f43d2",
+    "author": "Peter Grayson",
+    "date": "2021-02-07T21:59:34-05:00",
+    "message": "Add StGit release checklist\n\nAnd remove old and unused release scripts.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 4
+  },
+  {
+    "hash": "0e569fd4bfc661f922f48bb65b2579d98f5e8ef3",
+    "short_hash": "0e569fd",
+    "author": "Peter Grayson",
+    "date": "2021-02-01T17:38:19-05:00",
+    "message": "Avoid importing invalid and duplicate patch names\n\nThis aims to be a comprehensive repair of issues with `stg import` allowing\ninvalid and duplicate patch names.\n\nThe new Patches.make_name() method creates a unique and valid patch name\nbased on its knowledge of existing patch names. Since StGit patch names are\nused as Git refs, make_name() also attempts to enforce Git's rules for ref\nnaming. Generated patch names are checked with `git check-ref-format`\nbefore being returned.\n\nRepairs #64\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 7
+  },
+  {
+    "hash": "e08e7cb2c2ea169c8463ed3e7caad400e0bce9ec",
+    "short_hash": "e08e7cb",
+    "author": "Akshansh Gupta",
+    "date": "2020-07-19T15:10:44+05:30",
+    "message": "feat(refresh): add pre-commit hook",
+    "files_changed": 2
+  },
+  {
+    "hash": "e6dd7eff206a6515aefced2ad701beaf625d7b7d",
+    "short_hash": "e6dd7ef",
+    "author": "Peter Grayson",
+    "date": "2020-06-12T10:03:15-04:00",
+    "message": "Update changelog for v0.23 release\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 1
+  },
+  {
+    "hash": "91cf67377aa605c665f4dfe6b7aa33ec919b2e42",
+    "short_hash": "91cf673",
+    "author": "Peter Grayson",
+    "date": "2020-06-08T23:00:02-04:00",
+    "message": "Add CONTRIBUTING.md\n\nThis replaces Documentation/SubmittingPatches.\n\nThe new contribution guidelines align with StGit's contemporary practices.\nNamely, using GitHub for issue tracking and pull requests. In other words,\nthis acknowledges that the StGit project does not currently use an\nemail-oriented patch submission policy.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 5
+  },
+  {
+    "hash": "d156277e0af643dc631b35c9775ec44ef90d29a6",
+    "short_hash": "d156277",
+    "author": "Peter Grayson",
+    "date": "2020-04-24T13:52:40-04:00",
+    "message": "Remove Python 2.x compatibility hack from build.py\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 1
+  },
+  {
+    "hash": "79bdf353890792ebec49362717b8ca8503cf9795",
+    "short_hash": "79bdf35",
+    "author": "Peter Grayson",
+    "date": "2020-04-18T17:15:27-04:00",
+    "message": "Drop support for Python 3.3\n\nThe general reason is that Python 3.3 is very old and hard to even have\ninstalled on a modern system. The specific reason is that its insistence on\nbase64 encoding emails breaks an updated test in t1900-mail.sh\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 2
+  },
+  {
+    "hash": "c2dfe597f389499e8a74086bfa52b01aa3b83b16",
+    "short_hash": "c2dfe59",
+    "author": "Peter Grayson",
+    "date": "2020-04-18T13:20:25-04:00",
+    "message": "Add GitHub CI Action\n\nThe GitHub Action does the same steps as the Travis CI build, except for\ntesting against Python 2.6, 3.3, and 3.4.\n\nThe GitHub Action is also able to start-up sooner and completes much faster\nthan the Travis build.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 1
+  },
+  {
+    "hash": "cb053a0213dab9216f7312f418983f7681e4ba56",
+    "short_hash": "cb053a0",
+    "author": "Peter Grayson",
+    "date": "2020-03-08T23:08:15-04:00",
+    "message": "Reformat code using black\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 79
+  },
+  {
+    "hash": "a7f96f6946b8ceb76766e7ce29cbf81bfbc665d1",
+    "short_hash": "a7f96f6",
+    "author": "Peter Grayson",
+    "date": "2020-03-08T21:58:15-04:00",
+    "message": "Apply isort lint to all python code\n\nThe python files in the perf/ directory were not being checked by isort\nwhen running `make lint`.\n\nThe Makefile is updated to run isort against `.` to be more inclusive. This\nis also consistent with how flake8 is run for lint.\n\nThe skip_glob setting is added to setup.cfg to avoid isort descending into\nany dot directories, any of which are not part of the stgit worktree.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 5
+  },
+  {
+    "hash": "3a97aff8c4fc7f1e76550dc4466dbaa6edce68d7",
+    "short_hash": "3a97aff",
+    "author": "Peter Grayson",
+    "date": "2020-03-06T17:01:57-05:00",
+    "message": "Remove unused Python 2 compatibility code\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 1
+  },
+  {
+    "hash": "7560ebcf9a7d5765131b4948525d3283a7567a06",
+    "short_hash": "7560ebc",
+    "author": "Peter Grayson",
+    "date": "2020-03-06T16:24:17-05:00",
+    "message": "Remove text compatibility abstraction\n\nThe stgit.compat.text type mapped to unicode when running with Python 2.x\nand str when running with Python 3.x. Since Python 2.x is no longer\nsupported, plain str can now be used in place of text.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 8
+  },
+  {
+    "hash": "08403c1604a9a04476c6c5f68887188dd8245415",
+    "short_hash": "08403c1",
+    "author": "Peter Grayson",
+    "date": "2020-03-06T15:39:06-05:00",
+    "message": "Python 3.5 minimum version, explicitly drop 2.x\n\nAll Python versions < 3.5 are end-of-lifed by the Python project [0]. The\noldest non-EOL version is 3.5. To ease maintenance, StGit will only support\nnon-EOL versions of Python.\n\nThis change explicitly drops support for 2.x by virtue of removing\ncompatibility code. And Python versions < 3.5 are unsupported in that those\nversions are no longer tested with StGit.\n\nThe `# -*- coding: utf-8 -*-` encoding declarations are removed. UTF-8 is\nthe default encoding for Python 3 [1], so these declarations become\nsuperfluous.\n\n[0] https://devguide.python.org/devcycle/#end-of-life-branches\n[1] https://www.python.org/dev/peps/pep-3120/\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 82
+  },
+  {
+    "hash": "9acc95666619699d4cdf0526305155407081d8de",
+    "short_hash": "9acc956",
+    "author": "Peter Grayson",
+    "date": "2020-03-02T01:09:26-05:00",
+    "message": "Update RELEASENOTES for 0.22 release\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 1
+  },
+  {
+    "hash": "a718c0215272f57f039a68a1e65188a3d9974394",
+    "short_hash": "a718c02",
+    "author": "Peter Grayson",
+    "date": "2020-03-01T15:58:31-05:00",
+    "message": "Add configuration for black code formatter\n\nThe black code formatter is gaining traction. It enforces a reasonable\nstyle with minimal configuration. Using black with StGit will allow code\nstyling to be automated and thus be one less thing to deal with when\nmaintaining the code.\n\nhttps://github.com/psf/black\n\nThis adds the pyproject.toml file which contains black's configuration. The\nonly non-standard configuration option is use of skip-string-normalization.\nBy default, black normalizes all string literals to use double-quotes.\nEnabling skip-string-normalization allows StGit to use a heterogenous mix\nof single and double quotes, which reduces the noise in the reformat diff\nand enables continued use of StGit's preferred single-quoting style.\n\nMakefile, flake8, isort, and GitHub Actions are updated to incorporate\nblack.\n\nA separate commit will actually reformat Python code with black.",
+    "files_changed": 4
+  },
+  {
+    "hash": "6ea4dc5ab88ecb8174bd0b8b3d98745624f52791",
+    "short_hash": "6ea4dc5",
+    "author": "Peter Grayson",
+    "date": "2019-11-23T09:37:52-05:00",
+    "message": "Update `stg rename` to lib infra\n\nStack, Patches, and Patchorder are updated with new methods to help with\npatch renaming.\n\nStackTransaction is not used to conduct the rename. The problem with using\nStackTransaction for rename is that bad patch names are not discovered\nuntil StackTransaction.run() which can leave the stack in an inconsistent\nstate. This forces all the error checking into commands/rename.py.\n\nSo instead Stack.rename_patch() takes responsibility for either conducting\nthe rename atomically or raising an appropriate error.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 5
+  },
+  {
+    "hash": "5e0f855cc8592b3452b4a3d2d0291edf35383be2",
+    "short_hash": "5e0f855",
+    "author": "Peter Grayson",
+    "date": "2019-11-22T22:35:06-05:00",
+    "message": "Better `stg new` patch name validity checking\n\nNew patch names are now checked with the is_name_valid() method (which runs\n`git check-ref-format` under the hood). The goal is consistent and early\nchecking of patch names.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 2
+  },
+  {
+    "hash": "c7c4453b2ead0fa9ef0e6c9bc045b5f151945a3b",
+    "short_hash": "c7c4453",
+    "author": "Peter Grayson",
+    "date": "2019-11-11T22:43:24-05:00",
+    "message": "Migrate repair to lib infrastructure\n\n`stg repair` now uses the lib infrastructure.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 2
+  },
+  {
+    "hash": "ce4e2a7493ce77f86d94afb1fbe9539baa337c02",
+    "short_hash": "ce4e2a7",
+    "author": "Peter Grayson",
+    "date": "2019-10-28T15:50:10-04:00",
+    "message": "Release 0.21\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 1
+  },
+  {
+    "hash": "8fc2c5cd1d7d74e59a35699d12907d5d7efac190",
+    "short_hash": "8fc2c5c",
+    "author": "Peter Grayson",
+    "date": "2019-10-21T00:55:21-04:00",
+    "message": "Promote python 3.8 in .travis.yml\n\nPython 3.8.0 is released. Use 3.8 instead of 3.7 as primary python\nplatform.\n\nAlso drop `nightly' and `3.8-dev' from the matrix.\n\nAnd reorder matrix so that most-recent python 3.x versions run first.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 2
+  },
+  {
+    "hash": "11db302fd18d55c69430206b0f97b87ff8e1b4b2",
+    "short_hash": "11db302",
+    "author": "Peter Grayson",
+    "date": "2019-10-14T14:41:03-04:00",
+    "message": "Tests and repairs for stg log\n\nAdd t0009-log.sh to test `stg log`.\n\nUse `tformat` instead of `format` in default output format. There is no\ntrailing newline when regular `format`, while `tformat` ensures a\nterminating newline.\n\nCheck for invalid option and argument combination before performing any\nactions. New checks ensure that --clear is used by itself.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 2
+  },
+  {
+    "hash": "dcf1f6556ba6c7c475c71e55a92447c8339e6e86",
+    "short_hash": "dcf1f65",
+    "author": "Peter Grayson",
+    "date": "2019-10-14T10:37:35-04:00",
+    "message": "Migrate sync to lib infrastructure\n\nSync is now done using StackTransaction.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 2
+  },
+  {
+    "hash": "8c4ed4fcd15be0666875accc1a51c7314291a64c",
+    "short_hash": "8c4ed4f",
+    "author": "Peter Grayson",
+    "date": "2019-10-12T15:19:55-04:00",
+    "message": "Allow python optimization, repair bad asserts\n\nSince assert statements are removed when using `python -O`, it is not okay\nto wrap any statements or expressions which have required side-effects with\nassert.\n\nThe edit, goto, refresh, and squash commands all had problematic\nassert-wrapped statements.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 4
+  },
+  {
+    "hash": "4f2670ed6da97b731a51e57a01cab581d1b9c52e",
+    "short_hash": "4f2670e",
+    "author": "Peter Grayson",
+    "date": "2019-10-04T15:17:29-04:00",
+    "message": "Release 0.20\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 1
+  },
+  {
+    "hash": "c96213e69ac91b58ff2720039132a140bf9470cd",
+    "short_hash": "c96213e",
+    "author": "Peter Grayson",
+    "date": "2018-11-19T16:31:34-05:00",
+    "message": "Convert stg show to lib infrastructure\n\nThe `stg show` implementation is updated to use the new lib infrastructure.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 2
+  },
+  {
+    "hash": "b19d171a888363fa42e7222b0eb7a21a57c623d2",
+    "short_hash": "b19d171",
+    "author": "Peter Grayson",
+    "date": "2018-11-16T23:20:07-05:00",
+    "message": "Normalize imports with isort\n\nThe isort tool auto-formats the imports at the top of .py files. It\nintegrates with various editors. The isort config lives in setup.cfg.\nThe config is derived from the black formatting style.\n\nThe Makefile's lint target now also runs isort in --check-only mode.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 75
+  },
+  {
+    "hash": "8c722799a9d373a009a10972e2847b93d596748c",
+    "short_hash": "8c72279",
+    "author": "Peter Grayson",
+    "date": "2018-11-16T14:40:53-05:00",
+    "message": "Enable and repair flake8 'F' (pyflakes) errors\n\nOnly one 'F' issue to repair: redefining a local variable in a\ncomprehension. This is only an issue in Python 2.x where comprehension\nvariables leak into their enclosing scope.\n\nThis is the last flake8 violation, so instead of adding 'F' to the flake8\nconfig, we instead remove the 'select' line entirely to use flake8's full\ndefault selection of errors (E,F,W,C90).\n\nStGit is now flake8 compliant.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 2
+  },
+  {
+    "hash": "47c6f696289f1f67278b2eca4abb8716b9102e52",
+    "short_hash": "47c6f69",
+    "author": "Peter Grayson",
+    "date": "2018-11-12T17:16:16-05:00",
+    "message": "Enable and repair flake8 E3 errors\n\nThe E3 violations relate to the amount of vertical whitespace between\nclasses, methods, and functions. The bulk of this change is just adding\nnewlines to conform with PEP-8.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 58
+  },
+  {
+    "hash": "d86a0c1ffd8db519a1e8d56b3d972fdd8a7f4818",
+    "short_hash": "d86a0c1",
+    "author": "Peter Grayson",
+    "date": "2018-11-05T21:56:05-05:00",
+    "message": "Release 0.19\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 2
+  },
+  {
+    "hash": "3750812a399eee2e80e61d59de7c77070528e878",
+    "short_hash": "3750812",
+    "author": "Peter Grayson",
+    "date": "2018-04-15T15:55:22-04:00",
+    "message": "Add flake8 lint support\n\nThis is the first step to introduce linting to the stgit repo using flake8.\n\nA setup.cfg file is added with flake8 config section. Currently none of\nflake8 lints are selected (i.e. `select =`).\n\nThe Makefile gains a lint target that runs flake8.\n\nThe travis configuration also now runs flake8 for the Python 2.7 and 3.7\nbuilds.\n\nSigned-off-by: Peter Grayson <pete@jpgrayson.net>",
+    "files_changed": 3
+  },
+  {
+    "hash": "3df606d14f6673fede6cdf5fad921a664c03e108",
+    "short_hash": "3df606d",
+    "author": "Catalin Marinas",
+    "date": "2017-08-14T17:15:59+01:00",
+    "message": "Release 0.18\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "f248e80ec7ed418d23d47c8a6c147a8a42855d29",
+    "short_hash": "f248e80",
+    "author": "Catalin Marinas",
+    "date": "2017-08-09T15:44:15+01:00",
+    "message": "Update the StGit project page (from gna.org to github)\n\ngna.org has been shut down permanently, so StGit is moving to a new\nhome.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "04b462c9bac164270e57b5e870a67fbdce4834bb",
+    "short_hash": "04b462c",
+    "author": "Peter Grayson",
+    "date": "2017-02-23T21:45:54-05:00",
+    "message": "Use 0o octal prefix instead of 0\n\nThis prefix is compatible with python 2.6+.\n\nSigned-off-by: Peter Grayson <jpgrayson@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "299114806f94c878d0190280fcac0a268a1948b7",
+    "short_hash": "2991148",
+    "author": "Peter Grayson",
+    "date": "2017-02-23T21:45:53-05:00",
+    "message": "Raise exceptions using modern syntax\n\nAll occurrences of `raise Exception, 'message'` are replaced with the\nmodern form of raising an exception instance: `raise Exception('message')`.\n\nThis is a step toward Python3 compatibility.\n\nSigned-off-by: Peter Grayson <jpgrayson@gmail.com>",
+    "files_changed": 22
+  },
+  {
+    "hash": "ad30e1876426b5c7c5d920ed4f83df94e463b025",
+    "short_hash": "ad30e18",
+    "author": "Peter Grayson",
+    "date": "2017-02-23T21:45:53-05:00",
+    "message": "Set minimum Python version to 2.6\n\nSeveral modernizing changes are on the way. We explicitly set the minimum\nPython version to 2.6 ahead of these changes.\n\nSigned-off-by: Peter Grayson <jpgrayson@gmail.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "e392142fc63d4b8c101abd9690701a5e5e7fb5be",
+    "short_hash": "e392142",
+    "author": "Peter Grayson",
+    "date": "2017-02-23T21:45:53-05:00",
+    "message": "Use modern except syntax\n\nReplace all occurrences of `except Exception, e` with the modern form:\n`except Exception as e`.\n\nThe old form is not compatible with Python3.\n\nSigned-off-by: Peter Grayson <jpgrayson@gmail.com>",
+    "files_changed": 12
+  },
+  {
+    "hash": "c78a0603012648416e98fad36ae0fede892ffaec",
+    "short_hash": "c78a060",
+    "author": "Peter Grayson",
+    "date": "2017-02-23T21:45:52-05:00",
+    "message": "Use new-style classes\n\nExplicitly inherit object to ensure that all stgit-defined classes are\nnew-style classes.\n\nSigned-off-by: Peter Grayson <jpgrayson@gmail.com>",
+    "files_changed": 4
+  },
+  {
+    "hash": "baf040bf593d77dacebab8afdd0b82f44c047e88",
+    "short_hash": "baf040b",
+    "author": "Peter Grayson",
+    "date": "2016-12-26T23:56:42-05:00",
+    "message": "Enable tox test environment\n\nA tox.ini file is added that specifies Python 2.4, 2.5, 2.6, 2.7, and PyPy\ntest environments.\n\nSigned-off-by: Peter Grayson <jpgrayson@gmail.com>\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "c0e57187f3da2dee0e9ed1d9a709e1c571b30546",
+    "short_hash": "c0e5718",
+    "author": "Karl Wiberg",
+    "date": "2013-09-25T01:26:08+02:00",
+    "message": "Fix --authdate date parsing (ISO 8601 formats)\n\nSigned-off-by: Karl Wiberg <kha@treskal.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "f0b2610350d33d26cf25d97ed155d28bdb38f5f6",
+    "short_hash": "f0b2610",
+    "author": "Karl Wiberg",
+    "date": "2013-09-25T01:26:08+02:00",
+    "message": "Fix rebase where a directory is replaced by a file (fixes t2201 failure)\n\nOne of the tests introduced in the previous commit failed because the\nlogic to remove files during rebase was broken; this patch fixes it by\nremoving it entirely, since it doesn't appear to have been necessary\nin the first place.\n\nSigned-off-by: Karl Wiberg <kha@treskal.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "0dc586de2be8e03384155bcc7cf7111bbf4c2338",
+    "short_hash": "0dc586d",
+    "author": "Karl Wiberg",
+    "date": "2013-09-25T01:26:07+02:00",
+    "message": "Run the test suite in parallel\n\nOn a 4-core test machine with the test scratch dir on NFS, this\nreduces the time for running the complete suite from 7-8 minutes to 53\nseconds, very close to a 10x speedup. On a similar machine with the\ntest scratch dir on an SSD, it reduces the time from 3:43 to 49\nseconds, a respectable 4.5x speedup.\n\nSigned-off-by: Karl Wiberg <kha@treskal.com>",
+    "files_changed": 6
+  },
+  {
+    "hash": "979875323bd3fdd43b29b1640a26748bb9ef94bb",
+    "short_hash": "9798753",
+    "author": "Jacob Keller",
+    "date": "2013-06-20T15:39:54-07:00",
+    "message": "stg: require python2 rather than generic python executable\n\nThis patch fixes an issue with machines which have python3 and python2\ninstalled. It requires the python2 executable by default in order to prevent\naccidental use of the Python 3 series (which is not compatible.)\n\nSigned-off-by: Jacob Keller <jacob.e.keller@intel.com>\nSigned-off-by: Peter P Waskiewicz Jr <peter.p.waskiewicz.jr@intel.com>",
+    "files_changed": 6
+  },
+  {
+    "hash": "f8c77f23c0c6126839ca1bd36bee5af6f458e8b1",
+    "short_hash": "f8c77f2",
+    "author": "Gustav Hållberg",
+    "date": "2012-04-07T21:43:10+02:00",
+    "message": "stgit.el: Make stgit-branch ask whether to merge uncommitted changes\n\nSigned-off-by: Gustav Hållberg <gustav@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "5cabf6cfb3c543853ba3e87cd88309f3fe3479dd",
+    "short_hash": "5cabf6c",
+    "author": "Gustav Hållberg",
+    "date": "2012-04-07T21:25:10+02:00",
+    "message": "branch: Add --merge flag when switching branches\n\nSigned-off-by: Gustav Hållberg <gustav@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "0e495dd40f02770c76d1496bb46014dcb9290248",
+    "short_hash": "0e495dd",
+    "author": "Gustav Hållberg",
+    "date": "2012-04-06T21:32:26+02:00",
+    "message": "stgit.el: Allow opening specific revisions of files\n\nSigned-off-by: Gustav Hållberg <gustav@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "0cc7509bc4e2cb2407b67997c26693a25e195c8c",
+    "short_hash": "0cc7509",
+    "author": "Gustav Hållberg",
+    "date": "2012-04-06T21:32:25+02:00",
+    "message": "stgit.el: Allow \"U\" to delete unknow/ignored files and directories\n\nSigned-off-by: Gustav Hållberg <gustav@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "60c49d0be075292ffadffd21069f23d01a7c5ac1",
+    "short_hash": "60c49d0",
+    "author": "Stepan Koltsov",
+    "date": "2012-01-17T22:51:19+04:00",
+    "message": "stg delete --top\n\nshortcut for: stg delete `stg top`\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "982de08a1bce1c2e600eda7a50155418eecfb95a",
+    "short_hash": "982de08",
+    "author": "Catalin Marinas",
+    "date": "2012-01-09T22:12:54+00:00",
+    "message": "Release 0.16\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "aa99027f77df6a5890872c02061d492c3a13c74e",
+    "short_hash": "aa99027",
+    "author": "Catalin Marinas",
+    "date": "2011-09-12T10:13:12+01:00",
+    "message": "Replace the 'stg status' command with the 'git status -s' alias\n\nThere isn't really any point in keeping another status command. The only\nfunctionality missing would be 'status --reset' but this was moved to\nthe 'reset --hard' command (similar to what Git does).\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 12
+  },
+  {
+    "hash": "d6e17ce04e5b6e766bec35f7c7e56d1b5139b307",
+    "short_hash": "d6e17ce",
+    "author": "Gustav Hållberg",
+    "date": "2009-12-04T08:55:03+01:00",
+    "message": "stgit.el: Get default rebase branch from git-config in stg-rebase\n\nSigned-off-by: Gustav Hållberg <gustav@virtutech.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "aab226cf146c80f8d5acf6dc6284e89834258be1",
+    "short_hash": "aab226c",
+    "author": "Gustav Hållberg",
+    "date": "2009-12-04T08:55:02+01:00",
+    "message": "new: Allow empty messages with --message and --file\n\nSigned-off-by: Gustav Hållberg <gustav@virtutech.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "3e528fb0f9dd58c6e4bcb46ed53c532c9c947f03",
+    "short_hash": "3e528fb",
+    "author": "Gustav Hållberg",
+    "date": "2009-12-04T08:55:02+01:00",
+    "message": "stgit.el: Allow \"B\" to create new branches\n\nSigned-off-by: Gustav Hållberg <gustav@virtutech.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "0b9ea6b8c230e531546ae67c797bc486605e2e54",
+    "short_hash": "0b9ea6b",
+    "author": "David Kågedal",
+    "date": "2009-12-04T08:55:01+01:00",
+    "message": "stgit.el: Use format-spec when formatting patch lines\n\nSigned-off-by: David Kågedal <david@virtutech.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "e1e5f6d7a12e229db51445f6f8aca3ba81595ed7",
+    "short_hash": "e1e5f6d",
+    "author": "Gustav Hållberg",
+    "date": "2009-10-28T12:21:20+01:00",
+    "message": "push/pop: Allow \"-n0\" to do nothing\n\nAlso document what \"-n<negative>\" does.\nAdded some push tests to t1203-pop.sh and renamed it t1208-push-and-pop.sh.\n\nSigned-off-by: Gustav Hållberg <gustav@virtutech.com>\nSigned-off-by: Karl Wiberg <kha@treskal.com>",
+    "files_changed": 4
+  },
+  {
+    "hash": "fb9b3c0243657a2cf520e5bd5ccfe4aab94799c8",
+    "short_hash": "fb9b3c0",
+    "author": "Karl Hasselström",
+    "date": "2008-06-03T01:45:08+02:00",
+    "message": "Handle changed files with non-ASCII names\n\nGit was quoting them for us, which was not what we wanted. So call\ndiff-index with the -z flag, so that it doesn't.\n\nSigned-off-by: Karl Hasselström <kha@treskal.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "340793d1f7dc889720ceef3271ca58187474d110",
+    "short_hash": "340793d",
+    "author": "Catalin Marinas",
+    "date": "2008-05-19T22:54:27+01:00",
+    "message": "Allow export to write unapplied files as well\n\nThis was an artificial limit which upset many people (including me).\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "8cc1078981faa7b5cf00edca711b3df27a14ad0a",
+    "short_hash": "8cc1078",
+    "author": "Onno Kortmann",
+    "date": "2008-03-24T18:53:37+00:00",
+    "message": "Simple rename of top-most patch\n\nAllow renaming of the top-most patch just by calling stg rename\n<new-patch-name>, instead of stg rename <old> <new>. This is for\nexample helpful for those people who always have a typo or two in\ntheir patch names.\n\nSigned-off-by: Onno Kortmann <onno@gmx.net>\nSigned-off-by: Karl Hasselström <kha@treskal.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "b85a27bc852a94855fc410a0921fcaef2d13506b",
+    "short_hash": "b85a27b",
+    "author": "Catalin Marinas",
+    "date": "2008-03-20T23:12:33+00:00",
+    "message": "Allow the synchronisation of the unapplied patches\n\nThis is useful to avoid pushing patches when a sync operation failed\nand needs to be resumed.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "6b32d275d6dbde5ede913e418a1d4fb8c6143732",
+    "short_hash": "6b32d27",
+    "author": "Catalin Marinas",
+    "date": "2008-03-20T23:12:32+00:00",
+    "message": "Allow pick to import multiple patches\n\nThis patch allows multiple patches on the \"pick\" command line.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "78d1c847f77f3ed482574d75b682f1408cdf2002",
+    "short_hash": "78d1c84",
+    "author": "Karl Hasselström",
+    "date": "2007-12-19T18:00:12+00:00",
+    "message": "Nicer conflict markers\n\nInstead of tagging the conflict markers with sha1 hashes, use\n\"ancestor\", \"current\", and \"patched\".\n\nSigned-off-by: Karl Hasselström <kha@treskal.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "6c76a03347dca249ac12f791d6321ff15889c64a",
+    "short_hash": "6c76a03",
+    "author": "David Kågedal",
+    "date": "2007-12-19T18:00:12+00:00",
+    "message": "Use the output from merge-recursive to list conflicts\n\nmerge-recursive already has useful information about what the conflicts\nwere, so we reuse that when pushing.\n\nSigned-off-by: David Kågedal <davidk@lysator.liu.se>\nSigned-off-by: Karl Hasselström <kha@treskal.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "f02be96172f8cf36e052ff86678646b1991ed283",
+    "short_hash": "f02be96",
+    "author": "David Kågedal",
+    "date": "2007-12-19T18:00:11+00:00",
+    "message": "Leave working dir and index alone after failed (conflicting) push\n\nThis leaves the index and working tree in the state that merge-recursive\nleft it, with unmerged files in different stages, and the non-conflicting\nchanges in the index.\n\nSigned-off-by: David Kågedal <davidk@lysator.liu.se>\nSigned-off-by: Karl Hasselström <kha@treskal.com>",
+    "files_changed": 4
+  },
+  {
+    "hash": "6b760799882407774730b2d75bb5616e6ffd9804",
+    "short_hash": "6b76079",
+    "author": "David Kågedal",
+    "date": "2007-12-19T18:00:11+00:00",
+    "message": "Remove the 'top' field\n\nThe top is instead implicitly defined by the patch ref.\n\nSigned-off-by: David Kågedal <davidk@lysator.liu.se>\nSigned-off-by: Karl Hasselström <kha@treskal.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "8762753a9f1269a18aaac70a40e6b886d11fc664",
+    "short_hash": "8762753",
+    "author": "David Kågedal",
+    "date": "2007-12-19T18:00:10+00:00",
+    "message": "Remove the 'bottom' field\n\nThe bottom is instead always calculated from the top by getting its\nparent commit.\n\nSigned-off-by: David Kågedal <davidk@lysator.liu.se>\nSigned-off-by: Karl Hasselström <kha@treskal.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "07f464e02f4840faa12defe91bce6dd1e7bdd9a8",
+    "short_hash": "07f464e",
+    "author": "David Kågedal",
+    "date": "2007-12-19T18:00:09+00:00",
+    "message": "Emacs mode: added fontification\n\nSigned-off-by: David Kågedal <davidk@lysator.liu.se>\nSigned-off-by: Karl Hasselström <kha@treskal.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "2870f8b8d5544580dbab32b91c2de488dcc5e522",
+    "short_hash": "2870f8b",
+    "author": "Karl Hasselström",
+    "date": "2007-12-19T18:00:08+00:00",
+    "message": "Emacs mode: show patches' short description\n\nSigned-off-by: Karl Hasselström <kha@treskal.com>\nSigned-off-by: David Kågedal <davidk@lysator.liu.se>",
+    "files_changed": 1
+  },
+  {
+    "hash": "82a12e6e69b54fce426b71c5889303977fb9cdb9",
+    "short_hash": "82a12e6",
+    "author": "Karl Hasselström",
+    "date": "2007-12-19T18:00:08+00:00",
+    "message": "Emacs mode: push/pop next patch, not patch at point\n\nThe three operations we should have are:\n\n  * Pop the topmost applied patch, no matter where point is.\n\n  * Push the first unapplied patch, no matter where point is.\n\n  * Push/pop the patch at point, depending on whether it's currently\n    applied.\n\nThis patch makes \"<\" and \">\" do the first two operations. The third is\ncoming in a later patch.\n\nSigned-off-by: Karl Hasselström <kha@treskal.com>\nSigned-off-by: David Kågedal <davidk@lysator.liu.se>",
+    "files_changed": 1
+  },
+  {
+    "hash": "0663524d44cf6256c812a186feca2e9b4d8d1aa7",
+    "short_hash": "0663524",
+    "author": "Karl Hasselström",
+    "date": "2007-12-19T18:00:07+00:00",
+    "message": "Emacs mode: Show keybindings when user presses \"h\" or \"?\"\n\nThese are the same keys the git emacs mode uses.\n\nSigned-off-by: Karl Hasselström <kha@treskal.com>\nSigned-off-by: David Kågedal <davidk@lysator.liu.se>",
+    "files_changed": 1
+  },
+  {
+    "hash": "56d81fe5a024541ee70ee05530b6b903cfe14f12",
+    "short_hash": "56d81fe",
+    "author": "David Kågedal",
+    "date": "2007-12-19T18:00:07+00:00",
+    "message": "Add an StGit mode for emacs\n\nSigned-off-by: David Kågedal <davidk@lysator.liu.se>\nSigned-off-by: Karl Hasselström <kha@treskal.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "87c8a573e61d900c7304a4e4a4808199f31ef1f6",
+    "short_hash": "87c8a57",
+    "author": "Catalin Marinas",
+    "date": "2007-12-09T23:45:08+00:00",
+    "message": "Release 0.14\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "1b814c72ae60604d2073d52b5c89ccbd4cee96e5",
+    "short_hash": "1b814c7",
+    "author": "Catalin Marinas",
+    "date": "2007-08-29T11:52:59+01:00",
+    "message": "Make the maximum patch name length configurable\n\nThe config variable is stgit.namelenth\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "5e888f30cf851fc0989ba73f935f6da7681d4903",
+    "short_hash": "5e888f3",
+    "author": "Karl Hasselström",
+    "date": "2007-08-26T22:04:10+02:00",
+    "message": "Refactor output handling to break circular dependency\n\nI ran into problems when trying to use the fancy output handling in a\nnew module that was (recursively) imported by stgit.util -- I couldn't\nuse the out object because it wasn't defined yet.\n\nBreak out the output handler to its own module to break the circular\ndependency.\n\nSigned-off-by: Karl Hasselström <kha@treskal.com>",
+    "files_changed": 34
+  },
+  {
+    "hash": "5f1629be6d0d10aa2acb253c89c6f6c38fdf3cf2",
+    "short_hash": "5f1629b",
+    "author": "Catalin Marinas",
+    "date": "2007-08-23T17:45:27+01:00",
+    "message": "Allow 'import' to apply empty patches\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "262d31dcab5f51e7da41086c94f0eecaee060a74",
+    "short_hash": "262d31d",
+    "author": "Karl Hasselström",
+    "date": "2007-08-23T17:45:26+01:00",
+    "message": "Don't touch ref files manually\n\nMessing with files manually doesn't work if the refs are packed. The\nofficially preferred way is to use git-update-ref, git-show-ref,\net.al. So do that.\n\nAs a consequence of this, we have some small behavior changes:\n\n  * We used to not leave empty directories behind in the refs tree.\n    But now that's all in the hands of git-update-ref, which does\n    leave them behind. Tests that assumed the old behavior have been\n    fixed.\n\n  * We (that is, git-show-ref) no longer distinguish between a ref\n    that doesn't exist and a ref that contains garbage. So the tests\n    that assumed we'd fail when encountering a spurious ref with\n    garbage in it have had to go through attitude readjustment.\n\nSigned-off-by: Karl Hasselström <kha@treskal.com>",
+    "files_changed": 7
+  },
+  {
+    "hash": "f0de3f92cc85c3d5e1dd3511578b01e46652e93c",
+    "short_hash": "f0de3f9",
+    "author": "Karl Hasselström",
+    "date": "2007-08-21T18:15:38+02:00",
+    "message": "Refactor subprocess creation\n\nInstead of having a gazillion different little functions that wrap\nos.spawnvp and popen2.Popen3, make a single wrapper that's flexible\nenough to cater to everyone. Apart from making the code cleaner and\neasier to read, this has the added benefit of making it possible to\nadd little things such as extra safety checks and logging.\n\nIdeally, I'd have liked this wrapper to wrap subprocess.Popen, but\nthat's only available in Python 2.4 and up, so we'll have to make do\nwith os.spawnvp and popen2.Popen3 for now, even though they suck.\n\nSigned-off-by: Karl Hasselström <kha@treskal.com>",
+    "files_changed": 6
+  },
+  {
+    "hash": "2f830c0c3a36934b9688f2e445be1cb28e674a89",
+    "short_hash": "2f830c0",
+    "author": "Karl Hasselström",
+    "date": "2007-08-20T22:36:00+01:00",
+    "message": "Teach StGIT about core.excludesfile\n\nIf there is a core.excludesfile option specified, let StGIT take\nexclude patterns from that file, since that's what the docs say, and\nwhat everyone else is already doing.\n\nSigned-off-by: Karl Hasselstr�m <kha@treskal.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "337a07433f7aa7b6f3d0bf96696b4bc6092506d2",
+    "short_hash": "337a074",
+    "author": "Karl Hasselström",
+    "date": "2007-08-20T22:36:00+01:00",
+    "message": "Rename all config sections of a branch\n\nJust renaming the branch.branchname section doesn't rename the\nbranch.branchname.stgit section -- we have to do that explicitly.\n\nThis fixes bug 9692.\n\nSigned-off-by: Karl Hasselstr�m <kha@treskal.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "cec913c47b9630d6e24ba77c1323e234a4badffd",
+    "short_hash": "cec913c",
+    "author": "Karl Hasselström",
+    "date": "2007-08-20T22:36:00+01:00",
+    "message": "Add an --smtp-server commandline option to \"stg mail\"\n\nThe configuration option stgit.smtpserver is useful if you always talk\nto the same SMTP server. But I usually set up a temporary ssh tunnel,\nso I'd rather have a commandline option.\n\nSigned-off-by: Karl Hasselstr�m <kha@treskal.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "fc44c2cadaf20ba3deb2d5e6bb536f153fea2cea",
+    "short_hash": "fc44c2c",
+    "author": "Pavel Roskin",
+    "date": "2007-08-20T22:36:00+01:00",
+    "message": "Add support for SMTP over Transport Layer Security (TLS)\n\nSigned-off-by: Pavel Roskin <proski@gnu.org>",
+    "files_changed": 2
+  },
+  {
+    "hash": "6cf5ec9b2572ae59bfa59d1c23bc58cf4677ce0f",
+    "short_hash": "6cf5ec9",
+    "author": "Pavel Roskin",
+    "date": "2007-08-20T22:36:00+01:00",
+    "message": "Ask for SMTP password if it's not provided\n\nMention this in examples/gitconfig, explain SMTP options in more detail.\n\nSigned-off-by: Pavel Roskin <proski@gnu.org>",
+    "files_changed": 2
+  },
+  {
+    "hash": "3daa941b9727987f2db405f6887ba852aecb3479",
+    "short_hash": "3daa941",
+    "author": "Catalin Marinas",
+    "date": "2007-07-26T00:03:27+01:00",
+    "message": "Release 0.13\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "b6e961f27081bdb876f1caabfb9500f36ac7ac7f",
+    "short_hash": "b6e961f",
+    "author": "Catalin Marinas",
+    "date": "2007-02-28T08:41:56+00:00",
+    "message": "Add an interractive 2-way merge option\n\nSince emacs can handle 2-way merges as well with ediff-merge-files,\nthis patch changes the 'imerger' config option to 'i3merge' and also\nadds an 'i2merge' option. The gitmergeonefile.py algorithm was\nmodified to handle 2-way merges interactively as well.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "4ec677417c8bfb4d30b2cd7482c5ceca9b542fc8",
+    "short_hash": "4ec6774",
+    "author": "Yann Dirson",
+    "date": "2007-02-28T08:41:55+00:00",
+    "message": "Add a Documentation directory inspired by the git one.\n\nThe html and manpages are generated from asciidoc source.  Short\ndescription strings are extracted from the python modules.\n\nOnly the stg(7) frontpage and the stg-new(1) command page are already\nwritten.  A template is provided for new command pages.\n\nThis also reworks a couple of help strings and command classification.\n\nSigned-off-by: Yann Dirson <ydirson@altern.org>",
+    "files_changed": 13
+  },
+  {
+    "hash": "e078133e1145fc63235c59527f6a36e8f30d03c1",
+    "short_hash": "e078133",
+    "author": "Catalin Marinas",
+    "date": "2007-02-23T22:09:06+00:00",
+    "message": "Add --branch option to 'patches'\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "dc4e5946dfd10fd8f6251257c52161615f7c1841",
+    "short_hash": "dc4e594",
+    "author": "Catalin Marinas",
+    "date": "2007-02-21T18:30:30+00:00",
+    "message": "Display whether the patch is empty after refresh\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "3b3c26fa79d6632363c141b68df4b024f367ad0b",
+    "short_hash": "3b3c26f",
+    "author": "Yann Dirson",
+    "date": "2007-02-21T00:16:11+01:00",
+    "message": "Rework of the 'stg pull' policy.\n\n\nThis patch changes the way \"stg pull\" behaviour is selected, by\nreplacing stgit.pull-does-rebase and stgit.pullcmd with\nstgit.pull-policy, stgit.pullcmd and stgit.fetchcmd.  In the standard\ncase, only pull-policy needs to be set.\n\nThose 3 config variables are also available per-branch as\nbranch.*.stgit.<name>.\n\nThis patch also add a set of tests for the fetch-rebase policy,\nincluding interferences with \"stg commit\" occuring with 0.12.\n\nSigned-off-by: Yann Dirson <ydirson@altern.org>",
+    "files_changed": 5
+  },
+  {
+    "hash": "e5834af733eb4377f19d59a694ad106b82c63d5d",
+    "short_hash": "e5834af",
+    "author": "Yann Dirson",
+    "date": "2007-02-20T01:14:24+01:00",
+    "message": "Refuse to pull/rebase when rendered unsafe by (un)commits.\n\n\nThis can be overriden by a new --force flag.\n\nSigned-off-by: Yann Dirson <ydirson@altern.org>",
+    "files_changed": 3
+  },
+  {
+    "hash": "b6c95ada87ed57ef78f4a02987606e498cd4e04d",
+    "short_hash": "b6c95ad",
+    "author": "Yann Dirson",
+    "date": "2007-02-20T01:14:19+01:00",
+    "message": "Keep track of safe base changes.\n\n\n\n\nSigned-off-by: Yann Dirson <ydirson@altern.org>",
+    "files_changed": 2
+  },
+  {
+    "hash": "a9f3a9fc26bfad2168af83997e088247acccb1ee",
+    "short_hash": "a9f3a9f",
+    "author": "Yann Dirson",
+    "date": "2007-02-20T01:14:03+01:00",
+    "message": "Factorize rebasing behaviour.\n\n\n\n\nSigned-off-by: Yann Dirson <ydirson@altern.org>",
+    "files_changed": 3
+  },
+  {
+    "hash": "575c575ea43be1145e79e1cc5d66c2a102d94f7f",
+    "short_hash": "575c575",
+    "author": "Clark Williams",
+    "date": "2007-02-17T14:42:27-06:00",
+    "message": "URL import for stgit\n\nSigned-off-by: Clark Williams <clark.williams@gmail.com>\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "54fac8e67115d98b4addcd4e7c9bfe9f39820b09",
+    "short_hash": "54fac8e",
+    "author": "Catalin Marinas",
+    "date": "2007-02-16T22:42:35+00:00",
+    "message": "Add --author option to series\n\nThis is similar to the --description option, only that the author name\nis displayed instead.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "457c30933ccdf2fff533073544392a84ce6190ab",
+    "short_hash": "457c309",
+    "author": "Catalin Marinas",
+    "date": "2007-02-16T22:42:35+00:00",
+    "message": "Allow importing mbox files from stdin\n\nThe UnixMailbox does not support reading from stdin as it uses seek()\n(at least on Python 2.3). This patch reads the stdin into a StringIO\nobject.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "b2017c38acfed9c26ec5bbcb2b23784ca0a15cc8",
+    "short_hash": "b2017c3",
+    "author": "Catalin Marinas",
+    "date": "2007-02-13T22:26:36+00:00",
+    "message": "Make StGIT aware of the STGIT_DEBUG_LEVEL environment variable\n\nFor now, setting this environment variable will make StGIT dump the\nbacktrace in case of a failure.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "d12efe4418029cb713b46875779cbc9a4aa16166",
+    "short_hash": "d12efe4",
+    "author": "Yann Dirson",
+    "date": "2007-02-13T22:26:36+00:00",
+    "message": "Add --merged option to rebase.\n\nSigned-off-by: Yann Dirson <ydirson@altern.org>",
+    "files_changed": 1
+  },
+  {
+    "hash": "ebc429e7b7e596a12e8255fadc397123893cec73",
+    "short_hash": "ebc429e",
+    "author": "Catalin Marinas",
+    "date": "2007-02-06T22:48:03+00:00",
+    "message": "Release 0.12\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "925ff4a7136e29976b88a0d820fd883c6dae5b88",
+    "short_hash": "925ff4a",
+    "author": "Chuck Lever",
+    "date": "2006-11-08T22:30:03+00:00",
+    "message": "Optionally repack the object repository after every pull\n\nAdd an option to .stgitrc which causes the object repository to be repacked\nafter every \"stg pull\" operation.  Especially on NFS, this improves overall\nperformance considerably.  The only downside is that the first time it runs\nit will take a very long time if the repository hasn't been packed\nrecently.\n\nSigned-off-by: Chuck Lever <chuck.lever@oracle.com>",
+    "files_changed": 4
+  },
+  {
+    "hash": "948dae344afd7633b7a074beb36113c1b46527eb",
+    "short_hash": "948dae3",
+    "author": "Chuck Lever",
+    "date": "2006-11-08T22:30:03+00:00",
+    "message": "Add a new option to \"stg applied\" and \"stg unapplied\" that provides a count\n\nof patches rather than a list.\n\nSigned-off-by: Chuck Lever <chuck.lever@oracle.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "99c529152847b7e20e48dc477925e315918eed5d",
+    "short_hash": "99c5291",
+    "author": "Catalin Marinas",
+    "date": "2006-11-08T22:30:02+00:00",
+    "message": "Add mbox support to \"import\"\n\nThis patch allows the \"import\" command to read an mbox file. It also fixes\nvarious bugs and modifies git.apply_patch() to dump the failed patch to\nthe .stgit-failed.patch file for easy inspection or manual applying.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 4
+  },
+  {
+    "hash": "ac50371bda350d9d8a9d7bd23b1d5691d82b4d0d",
+    "short_hash": "ac50371",
+    "author": "Catalin Marinas",
+    "date": "2006-11-08T22:30:02+00:00",
+    "message": "Add a trash directory with deleted patches\n\nSince the delete command now supports multiple patches (and a \"..\" would\nremove the whole stack), it is safer to copy the commit ids to\n.git/patches/<branch>/trash/ in case a restore is needed. There is no\ncommand allowing the restoring yet.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "6f6d039f0cfb7470d11f77cacb8612b1b4ed40d1",
+    "short_hash": "6f6d039",
+    "author": "Catalin Marinas",
+    "date": "2006-11-08T17:35:50+00:00",
+    "message": "Add file renaming support\n\nThe merge method was changed from gitmergeonefile.merge() to the external\ngit-merge-recursive which handles renames properly. The 'mv' command was\nadded as well.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "6ef533bcc52fbf933e9f428d8ea2bf690f0ad76a",
+    "short_hash": "6ef533b",
+    "author": "Catalin Marinas",
+    "date": "2006-11-07T19:03:49+00:00",
+    "message": "Add support for multipart messages to import\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "2ac5a14c60a28ff7d68a4d50469c0a111b966bfc",
+    "short_hash": "2ac5a14",
+    "author": "Catalin Marinas",
+    "date": "2006-11-07T19:03:49+00:00",
+    "message": "Properly import qp-encoded e-mail headers\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "b839b1cf42be33947adb87d6a2ae2164aad2371e",
+    "short_hash": "b839b1c",
+    "author": "Karl Hasselström",
+    "date": "2006-11-07T19:03:48+00:00",
+    "message": "Generate unique patch names\n\n\"stg assimilate\" was already making sure that automatically generated\npatch names were non-empty and unique, by suffixing them with a dash\nand a number if necessary. This patch moves that functionality into\nthe autogeneration function itself, so that all its callers can\nbenefit from it (and the user can benefit from uniform behavior from\nall stgit commands).\n\nAs an added bonus, this permits the removal of a number of checks that\nwould abort with an error if the automatically generated name was\nempty.\n\nSigned-off-by: Karl Hasselström <kha@treskal.com>",
+    "files_changed": 5
+  },
+  {
+    "hash": "61eed15276863e203a70870caa84daab60765c40",
+    "short_hash": "61eed15",
+    "author": "Catalin Marinas",
+    "date": "2006-11-07T19:03:48+00:00",
+    "message": "Properly encode the e-mail headers and body\n\nThe headers are QP-encoded and the body is left as utf-8. The mail command\nnow uses the email Python package for setting the headers and encoding. The\ntemplate files were modified as there is no need for \"Date:\" and\n\"%(endofheaders)s\".\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "f9a2b5dae96b05071105a9b84e98bcc8942960ed",
+    "short_hash": "f9a2b5d",
+    "author": "Karl Hasselström",
+    "date": "2006-11-07T19:03:47+00:00",
+    "message": "Generate shorter patch names\n\nNot all commits are blessed with a really short first-line summary in\ntheir commit messages. This means that we shouldn't blindly take the\nentire first line of the comment, since that sometimes results in\ntruly spectacular patch names.\n\nI chose 30 characters as a reasonable value, considering that we don't\nyet have any tab-completion on patch names. There's probably not much\npoint in making it configurable.\n\nSigned-off-by: Karl Hasselström <kha@treskal.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "87bcf96e1932268c3bb67c99bde6c8e897ec9fdf",
+    "short_hash": "87bcf96",
+    "author": "Karl Hasselström",
+    "date": "2006-11-02T21:18:33+00:00",
+    "message": "Allow deletion of several patches at once\n\nSigned-off-by: Karl Hasselström <kha@treskal.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "0ba13ee974124145b9d47b8f305db717e7ab3630",
+    "short_hash": "0ba13ee",
+    "author": "Karl Hasselström",
+    "date": "2006-11-02T21:18:32+00:00",
+    "message": "Allow hand-editing of patches before sending\n\nThis adds a new flag to 'stg mail', allowing the user to hand-edit\neach patch e-mail before it is sent, just like it is currently\npossible to edit the cover message.\n\nSigned-off-by: Karl Hasselström <kha@treskal.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "9b63cf56576bf219d26f490f3c011e937a5f7129",
+    "short_hash": "9b63cf5",
+    "author": "Ilpo J�rvinen",
+    "date": "2006-11-02T21:18:32+00:00",
+    "message": "Fixes \"stg goto `stg top`\" to no-op & adds test\n\nPlease forgive me that didn't read the test metadata through while\nproducing the last patch. This time also it should be correct...\n\nStGIT tried to access index that is not valid when goto'ing to\nthe current patch. Adds also a test for it.\n\nSigned-off-by: Ilpo J�rvinen <ilpo.jarvinen@helsinki.fi>",
+    "files_changed": 2
+  },
+  {
+    "hash": "613a2f163a1c2185eb03f1d9e8504e8fd737a4a4",
+    "short_hash": "613a2f1",
+    "author": "Paolo 'Blaisorblade' Giarrusso",
+    "date": "2006-11-02T21:18:31+00:00",
+    "message": "Stgit: allow importing series files where patch names include slashes\n\nDo that by converting slashes in patch name to dashes. Actually one could think\nthat different quilt folders relate to topic branches, but I do not see an\nobviously correct mapping nor users which would do that.\n\nSigned-off-by: Paolo 'Blaisorblade' Giarrusso <blaisorblade@yahoo.it>",
+    "files_changed": 1
+  },
+  {
+    "hash": "d884c4d8fd0a990d0746c7964bfd979a625c7ab2",
+    "short_hash": "d884c4d",
+    "author": "Catalin Marinas",
+    "date": "2006-10-27T21:20:27+01:00",
+    "message": "Add the 'autobcc' config option\n\nUseful to automatically bcc the e-mails to a given address.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "d323b5da574ae8dabee51d8b7e74498d45784ab7",
+    "short_hash": "d323b5d",
+    "author": "Robin Rosenberg",
+    "date": "2006-10-27T21:20:26+01:00",
+    "message": "Add an optional prefix to the PATCH subject when mailing.\n\nThis is for submitting patches to mailing lists with multiple\nprojects.\n\nSigned-off-by: Robin Rosenberg <robin.rosenberg@dewire.com>\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "519a11f91b58d475d849572959fbfe98dcd8ab95",
+    "short_hash": "519a11f",
+    "author": "Karl Hasselström",
+    "date": "2006-10-25T20:24:55+01:00",
+    "message": "Regression test for \"stg assimilate\"\n\nSigned-off-by: Karl Hasselström <kha@treskal.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "4fe42e6312780d5c325ddd8e533b3198d065bd05",
+    "short_hash": "4fe42e6",
+    "author": "Karl Hasselström",
+    "date": "2006-10-25T20:24:54+01:00",
+    "message": "Let \"stg help\" be like \"stg --help\"\n\n\"stg --help\" prints the list of commands, but \"stg help\" just prints\nthe usage message for the help command. This may be useful in theory,\nbut the distinction is probably lost on 95% of all users (and the\nremaining 5% probably don't need to see the usage message for the help\ncommand anyway, since they know how it works). So just make both\ncommands output the helpful command list.\n\nSigned-off-by: Karl Hasselström <kha@treskal.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "d00e708af18a0fffe53795dc547873d3efd1c909",
+    "short_hash": "d00e708",
+    "author": "Karl Hasselström",
+    "date": "2006-10-25T20:24:54+01:00",
+    "message": "When no command was given, print usage message\n\nIt's just silly to say \"Unknown command\" when the user didn't give a\ncommand. Better to tell her to use a command.\n\nSigned-off-by: Karl Hasselström <kha@treskal.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "275bf2c0d5cb48b370587cf2583a87b20e4872ac",
+    "short_hash": "275bf2c",
+    "author": "Catalin Marinas",
+    "date": "2006-10-21T09:42:19+01:00",
+    "message": "Release 0.11\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "6b136bb539e2019d4fca30f3a22fbc18f730facb",
+    "short_hash": "6b136bb",
+    "author": "Catalin Marinas",
+    "date": "2006-10-20T21:48:32+01:00",
+    "message": "Add Debian package support to StGIT\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 8
+  },
+  {
+    "hash": "1ab20f6c8d5cd950106eff62820e8ee213ce09f8",
+    "short_hash": "1ab20f6",
+    "author": "Catalin Marinas",
+    "date": "2006-10-20T21:48:32+01:00",
+    "message": "Rearrange the patches with a given series file\n\nThis patch adds the --series option to the float command to reorder the\n(top) patches as specified in a series file (or standard input).\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "b3bfa1200ad22ba55ed1531bff439d6d63ec36e5",
+    "short_hash": "b3bfa12",
+    "author": "Catalin Marinas",
+    "date": "2006-10-20T21:48:32+01:00",
+    "message": "Allow the git-pull command to be configurable\n\nThis way some people can use cg-pull instead. The patch also does some\nclean-up in the example stgitrc file.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 4
+  },
+  {
+    "hash": "f8d1cf651e6f767e17ea9aad7702a6aaedc2960e",
+    "short_hash": "f8d1cf6",
+    "author": "Catalin Marinas",
+    "date": "2006-10-20T21:48:32+01:00",
+    "message": "Add --auto option to 'mail'\n\nThis option causes the mail command to automatically add the patch signers\nto the Cc list. The patch also fixes the multiple To/Cc/Bcc lines\ngeneration.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "d98a499cb2a75decec1fb5f313ec07fa8e00ec2d",
+    "short_hash": "d98a499",
+    "author": "Robin Rosenberg",
+    "date": "2006-10-17T19:39:53+01:00",
+    "message": "New command 'float' to move a patch to the top\n\nSigned-off-by: Robin Rosenberg <robin.rosenberg@dewire.com>\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "e45af3d4a0faa3f7c46a0a2a9647ad09f1ba8720",
+    "short_hash": "e45af3d",
+    "author": "Catalin Marinas",
+    "date": "2006-10-17T19:37:26+01:00",
+    "message": "Fix the preserving of the local changes during pop\n\nThe operation now only preserves the local changes by reverse-applying the\ndiff of the popped patches.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "c40c3500e2475859f051c750ae9ff5cba2f54000",
+    "short_hash": "c40c350",
+    "author": "Catalin Marinas",
+    "date": "2006-10-16T19:36:49+01:00",
+    "message": "Add --sign and --ack options to refresh\n\nThese options automatically sign or acknowledge a patch.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "1e0754060c4fbf7a35efc8557e8d798a49103324",
+    "short_hash": "1e07540",
+    "author": "Catalin Marinas",
+    "date": "2006-10-16T19:36:49+01:00",
+    "message": "Add the '--interactive' option to 'resolved'\n\nThis options causes the 'resolved' command to run an interactive merge tool\nlike xxdiff or emacs, defined by the 'imerger' variable in the .stgitrc\nconfig file.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 4
+  },
+  {
+    "hash": "d1ed3a126920b502b2e7c37a609ecae480b8b254",
+    "short_hash": "d1ed3a1",
+    "author": "Catalin Marinas",
+    "date": "2006-09-15T19:24:02+01:00",
+    "message": "Add the --noreply option to 'mail'\n\nThere are mailing lists (ARM Linux Kernel is one of them) that filter out\ne-mails having the In-Reply-To: header but a subject line not starting with\nRe:. With this option, the mail command will not create the reply-specific\nheaders (the patch series will be unthreaded).\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "75a221d2f3dcfa4b8af1e994ba9ea6d6f7826a45",
+    "short_hash": "75a221d",
+    "author": "Catalin Marinas",
+    "date": "2006-09-15T19:24:01+01:00",
+    "message": "Allow empty commit messages\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "43e97a2036d951afaf5bc0cffd9633f4c634fc7d",
+    "short_hash": "43e97a2",
+    "author": "Catalin Marinas",
+    "date": "2006-09-15T19:24:01+01:00",
+    "message": "Add the --graphical option to series\n\nThis option invokes gitk on all the patches rather than printing the\nseries.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "89e3bc51b5d645f6814a152d853994467eafea81",
+    "short_hash": "89e3bc5",
+    "author": "Yann Dirson",
+    "date": "2006-08-14T18:55:42+02:00",
+    "message": "Add a --parent flag to \"stgit pick\".\n\n\nThis is useful to pick changes from a non-stgit branch, that were\nrecorded as a merge commit, while giving control on the parent to\nuse as \"bottom\" for the patch (for some reason stgit selects the\nfirst parent by default).\n\nIncidentally, it can be used to pick changes between arbitrary\ntrees in the revision graph.  Since that can be useful as well,\nI did not implement the is_parent check I originally meant to add.\n\nSigned-off-by: Yann Dirson <ydirson@altern.org>",
+    "files_changed": 1
+  },
+  {
+    "hash": "860d288db5f555a00a27a05bffd9b19fda154ccb",
+    "short_hash": "860d288",
+    "author": "Catalin Marinas",
+    "date": "2006-07-14T17:25:36+01:00",
+    "message": "Automatically generate patch names for uncommit\n\nThis is the same as in the pick or import commands, the patch name, if not\nspecified, is automatically generated from the first line of the patch\ndescription.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "1f3bb0172efa4e5edf43f5407306f0cf3e1b717e",
+    "short_hash": "1f3bb01",
+    "author": "Catalin Marinas",
+    "date": "2006-07-10T22:21:22+01:00",
+    "message": "Add a common function for reading template files\n\nUseful to search through various directories without duplicating the code.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 5
+  },
+  {
+    "hash": "fdf4cb43a1c8133e013fd8ca2d1a5753ea048c90",
+    "short_hash": "fdf4cb4",
+    "author": "Catalin Marinas",
+    "date": "2006-07-05T19:27:02+01:00",
+    "message": "Do not use the pager when the output is empty\n\nThis is for the diff and show commands to not run the output through the\npager if there is nothing to display.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "fff9bce57321720677a897e3c811538eea6a9cb6",
+    "short_hash": "fff9bce",
+    "author": "Catalin Marinas",
+    "date": "2006-07-05T19:27:02+01:00",
+    "message": "Get the patch name from the description\n\nThe import and pick commands can get the patch name from the patch\ndescription if it wasn't passed on the command line or the patch is read\nfrom the standard input (for import).\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "9f2de96a7d7a983b13ad807a433c5d1d6d6e5b3b",
+    "short_hash": "9f2de96",
+    "author": "Catalin Marinas",
+    "date": "2006-06-11T13:21:04+01:00",
+    "message": "Release 0.10\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "5dc51fea740a2e2e2fa3d4462efe719ce0ab02b1",
+    "short_hash": "5dc51fe",
+    "author": "Yann Dirson",
+    "date": "2006-05-28T23:25:19+02:00",
+    "message": "Classify commands in stg --help output.\n\n\nCommands will be much easier to find out that way.\nInspiration mostly comes from pg-help.\n\nSigned-off-by: Yann Dirson <ydirson@altern.org>",
+    "files_changed": 1
+  },
+  {
+    "hash": "2c3a16552d7d3809145890e0e3ac65ea88a6bd52",
+    "short_hash": "2c3a165",
+    "author": "Yann Dirson",
+    "date": "2006-05-28T08:46:11+01:00",
+    "message": "Allow to specify multiple patch names on push command-line\n\nSigned-off-by: Yann Dirson <ydirson@altern.org>",
+    "files_changed": 1
+  },
+  {
+    "hash": "994fdba73855eb93305d4722678b2af8266dbcb5",
+    "short_hash": "994fdba",
+    "author": "Catalin Marinas",
+    "date": "2006-05-25T21:38:10+01:00",
+    "message": "Implement the 'goto' command\n\nPush/pop patches to/from the stack until the one given on the command\nline becomes current. This is a shortcut for the 'push --to' or 'pop\n--to' commands. There is no '--undo' option for 'goto'. Use the 'push'\ncommand for this.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 4
+  },
+  {
+    "hash": "d0bfda1a1a21cb1f4ef661051199f98fd4869752",
+    "short_hash": "d0bfda1",
+    "author": "Catalin Marinas",
+    "date": "2006-05-24T22:03:40+01:00",
+    "message": "Add the --update option to pick\n\nThis option updates the current patch with changes from the picked commit\nor patch. This option is useful when work is done on a temporary patch but\nthe changes need to be folded back into existing patches. Note that\nthree-way merging is not supported with this option (I'm not sure it is\neven needed).\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "e3960931aafc4841588b0a39d74dfaf768c9219b",
+    "short_hash": "e396093",
+    "author": "Karl Hasselström",
+    "date": "2006-05-24T08:06:58+02:00",
+    "message": "Fix indexing error during \"diff -r/\"\n\nThe string indexing when decoding the -r argument for diff made an\nimplicit assumption that the revision string was at least two\ncharacters long, which broke on the simple invocation \"diff -r/\".",
+    "files_changed": 2
+  },
+  {
+    "hash": "01f76ccd02493effc275265ddf3b3f567eedd917",
+    "short_hash": "01f76cc",
+    "author": "Karl Hasselström",
+    "date": "2006-05-24T08:06:43+02:00",
+    "message": "Fix infinite recursion on absolute paths\n\nCalling create_dirs with an absolute path caused infinite recursion,\nsince os.path.dirname('/') == '/'. Fix this by exiting early if the\ngiven path already is a directory.",
+    "files_changed": 1
+  },
+  {
+    "hash": "6e83f4d7c39b981146f57aad8049c5622799dd00",
+    "short_hash": "6e83f4d",
+    "author": "Karl Hasselstr�m",
+    "date": "2006-05-18T21:36:41+01:00",
+    "message": "Handle branch names with slashes\n\nTeach stgit to handle branch names with slashes in them; that is,\nbranches living in a subdirectory of .git/refs/heads.\n\nI had to change the patch@branch/top command-line syntax to\npatch@branch//top, in order to get sane parsing. The /top variant is\nstill available for repositories that have no slashy branches; it is\ndisabled as soon as there exists at least one subdirectory of\nrefs/heads. Preferably, this compatibility hack can be killed some\ntime in the future.\n\nSigned-off-by: Karl Hasselstr�m <kha@treskal.com>",
+    "files_changed": 9
+  },
+  {
+    "hash": "d7fade4be437ade1eaf92ca29cc99b566b0e3c18",
+    "short_hash": "d7fade4",
+    "author": "Catalin Marinas",
+    "date": "2006-05-09T21:21:28+01:00",
+    "message": "Allow configurable file extensions for merge conflicts\n\nThe files left after a merge conflict had confusing extensions. This patch\nadds the \"extensions\" config option and also sets the defaults to\n\".ancestor\", \".current\" and \".patched\".\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 5
+  },
+  {
+    "hash": "c8a4777f93c66181a78c25d292be3681ecf3adaa",
+    "short_hash": "c8a4777",
+    "author": "Pavel Roskin",
+    "date": "2006-05-08T21:22:06+01:00",
+    "message": "Add a simple makefile\n\nSigned-off-by: Pavel Roskin <proski@gnu.org>",
+    "files_changed": 1
+  },
+  {
+    "hash": "2297d0e95e2af010588215a3e896e0bbd39118df",
+    "short_hash": "2297d0e",
+    "author": "Pavel Roskin",
+    "date": "2006-05-08T21:22:06+01:00",
+    "message": "Add .gitignore files, list generated files there\n\nSigned-off-by: Pavel Roskin <proski@gnu.org>",
+    "files_changed": 4
+  },
+  {
+    "hash": "9cfad9525f37ffe57edefe112982c46187a02ff6",
+    "short_hash": "9cfad95",
+    "author": "Catalin Marinas",
+    "date": "2006-05-08T21:21:22+01:00",
+    "message": "Fix git.reset() to remove the added files\n\nThe combination of git-read-tree and git-checkout-index used in the\ngit.checkout() function doesn't remove the files added to the index. This\npatch adds the file removal support to the git.reset() function. It also\nchanges the git.apply_diff() call in stack.Series.merged_patches() so that\nthe the index is always updated (otherwise the reset wouldn't know which\nfiles to remove).\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "56df21ed4cf5230924b5b6bd69b138da904758d0",
+    "short_hash": "56df21e",
+    "author": "Catalin Marinas",
+    "date": "2006-05-03T20:34:18+01:00",
+    "message": "Fix the added to both but different conflict\n\nBy default, the index was left with two unmerged entries. StGIT tries to\nleave the index clean after conflicts.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "774fc1e90859cc68926f4357347b0624d43f746f",
+    "short_hash": "774fc1e",
+    "author": "Catalin Marinas",
+    "date": "2006-05-03T20:34:18+01:00",
+    "message": "Allow git.checkout() to work on unmerged indexes\n\nIf the index has unmerged entries, the current checkout implementation\nfails because of the -m option. This patch removes the option since it is\nnot needed on tree_id is specified. This also allows \"stg status --reset\"\nto work on unmerged indexes.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "8c8be628038f425c90c2101e362bf77f9a8bd948",
+    "short_hash": "8c8be62",
+    "author": "Yann Dirson",
+    "date": "2006-04-16T22:40:29+02:00",
+    "message": "Test that pulls a patch creating a file that got modified afterwards\n\nThis demonstrates an issue wite has bitten me more than once: the stg\nbranch adds a file in one patch, and modifies it in a later patch; then all\npatches get integrated in upstream tree, and at \"stg pull\" time, stgit\nbelieves there is a conflict, even when the patches are exactly the same.\n\nThis is normal as it requires the --merged flag on push or pull.  So\nwe rollback with \"push --undo\" and \"push --merge\" to finish.",
+    "files_changed": 1
+  },
+  {
+    "hash": "94d1886878f54807b7c2be9eec9410723c04f2f2",
+    "short_hash": "94d1886",
+    "author": "Yann Dirson",
+    "date": "2006-04-16T12:52:46+02:00",
+    "message": "Look for templates in ~/.stgit/templates as well\n\n\nThis can be quite useful to avoid adding one's sig again and again to\never covermail, and to use a patchmail template that insert\nSigned-off-by lines, for those of us who prefer this to adding them to\ncommits.\n\nAlso make sure to use os.path.join() instead of hardcoded slashes.\n\nSigned-off-by: Yann Dirson <ydirson@altern.org>",
+    "files_changed": 2
+  },
+  {
+    "hash": "bcfe759bc421f8e3b5b5866434948b0e406f9a60",
+    "short_hash": "bcfe759",
+    "author": "Yann Dirson",
+    "date": "2006-04-16T12:52:44+02:00",
+    "message": "Exercise \"stg pull\" on patches just appending lines.\n\n\nIt indeed reveals a problem in \"push\": appended lines are appended\nagain, as the already-applied patch is not detected.\n\nSigned-off-by: Yann Dirson <ydirson@altern.org>",
+    "files_changed": 1
+  },
+  {
+    "hash": "608961c24ee007e7a19db6be020f3be0d8155511",
+    "short_hash": "608961c",
+    "author": "Yann Dirson",
+    "date": "2006-04-16T12:52:39+02:00",
+    "message": "Fix a seriously bad interaction between .git caching and repo cloning\n\n\nTestcase 2 exhibits a problem with caching the location of .git while\ncloning a repository.  Since basedir.get() is called before the clone is\nbuilt, a value may get stored in the cache if we are within a\ngit-controlled tree already.  Then when constructing the object for the\nclone, a bogus .git is used, which can lead, when running tests in t/trash,\nto corruption of the stgit .git repository.\n\nTestcase 1 does not show any problem by chance, because since we have a\n./.git prepared for use by the testsuite, value \".git\" get cached, and it\nhappens that this value will be still valid after chdir'ing into the\nnewborn clone.\n\nClearing the cache at the appropriate place fixes the problem.\n\nSigned-off-by: Yann Dirson <ydirson@altern.org>",
+    "files_changed": 3
+  },
+  {
+    "hash": "a5f1eba2761eba8987c94bf61e0a4b7528afbb5f",
+    "short_hash": "a5f1eba",
+    "author": "Yann Dirson",
+    "date": "2006-04-16T12:52:37+02:00",
+    "message": "Correctly handle refs/patches on series rename\n\n\nWhen renaming a series, the refs/patches dir was not moved, and by\nchance a new one was created by the repository-upgrade code, but that\nleft the old one behind as cruft (which the safety checks added in a\nformer patch now detects).\n\nAlso adds a regression test to assert that nothing by the old name\nis left behind.\n\nSigned-off-by: Yann Dirson <ydirson@altern.org>",
+    "files_changed": 2
+  },
+  {
+    "hash": "a22a62b6760b0e1531d783e414c65ada3d1525d6",
+    "short_hash": "a22a62b",
+    "author": "Yann Dirson",
+    "date": "2006-04-16T12:52:35+02:00",
+    "message": "Make branch creation atomic\n\n\nThis patch adds an optional create_at parameter to Series.init(), to\npass a git.branch_create() parameter if we want it to be called.  This\nparameter can be None, so the test for False has to be explicit.\n\nSigned-off-by: Yann Dirson <ydirson@altern.org>",
+    "files_changed": 2
+  },
+  {
+    "hash": "fe847176ac839e64d426e6bf8ab7ad67ba3129d6",
+    "short_hash": "fe84717",
+    "author": "Yann Dirson",
+    "date": "2006-04-16T12:52:32+02:00",
+    "message": "Add a couple of safety checks to series creation\n\n\n- we must check first whether the operation can complete, instead of\n  bombing out halfway.  That means checking that nothing will prevent\n  the creation of stgit data (note that calling is_initialised() is\n  not enough, as it does not catch a bogus file), which is tested by\n  the 3 first couple of testcases, and fixed in stack.py\n\n- creating the git branch unconditionally before knowing whether\n  creation of the stgit stuff can be completed is a problem as well:\n  being atomic would be much much better.  To emulate atomicity (which\n  comeds in the next patch), this patch does a somewhat dirty hack to\n  branch.py: we first attempt to create the stgit stuff, and if that\n  succeeds, we create the git branch: it is much easier to do at first\n  a quick check that the latter will succeed.  Testcase 7/8 ensure\n  that such a safety check has not been forgotten.\n\n- when git already reports a problem with that head we would like to\n  create, we should catch it.  Testcase 9/10 creates such a situation,\n  and the fix to git.py allows to catch the error spit out by\n  git-rev-parse.  I cannot tell why the stderr lines were not included\n  by the Popen3 object.\n\nSigned-off-by: Yann Dirson <ydirson@altern.org>",
+    "files_changed": 4
+  },
+  {
+    "hash": "aa9b1b9d49ec37d28b6f576656170d47618e25b5",
+    "short_hash": "aa9b1b9",
+    "author": "Yann Dirson",
+    "date": "2006-04-16T12:52:28+02:00",
+    "message": "Add a testsuite framework copied from git-core\n\n\nSee git's t/README for details on how to use this framework.\n\nThere is no integration yet in the toplevel Makefile, I'll let\npython masters take care of this.  Use \"make -C t\" to run the\ntests for now.\n\nA patch-naming policy should be defined for stgit, since the\ngit one does not apply.\n\nSigned-off-by: Yann Dirson <ydirson@altern.org>",
+    "files_changed": 5
+  },
+  {
+    "hash": "ee78cb260d1ce52cf6cc81c6d8b320e75243b4e5",
+    "short_hash": "ee78cb2",
+    "author": "Catalin Marinas",
+    "date": "2006-04-07T21:46:30+01:00",
+    "message": "Release 0.9\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "52f3900c0c7dec8581fa907495a09c900a3d39d7",
+    "short_hash": "52f3900",
+    "author": "Catalin Marinas",
+    "date": "2006-03-31T18:42:35+01:00",
+    "message": "Use a pager for diff and show commands\n\nThis patch also adds a pager configuration option that overrides the\ndefault PAGER environment variable.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 4
+  },
+  {
+    "hash": "8847a11b3bbf5406f37a360e5466f0e392c56383",
+    "short_hash": "8847a11",
+    "author": "Catalin Marinas",
+    "date": "2006-03-31T18:42:34+01:00",
+    "message": "Add a 'show' command\n\nThis command is similar to 'git show' only that it understands patch names\nas well as normal commit ids.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "f80bef4918840e4290f03f291d8b4dbb98b12d80",
+    "short_hash": "f80bef4",
+    "author": "Catalin Marinas",
+    "date": "2006-03-31T18:42:34+01:00",
+    "message": "Add the '--undo' option to 'refresh'\n\nThis option is useful when adding the changes to the wrong patch (usually\ninstead of creating a new one).\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "510d1442b1fcabe006fcf322837980d23eaeb9c7",
+    "short_hash": "510d144",
+    "author": "Catalin Marinas",
+    "date": "2006-02-28T21:57:35+00:00",
+    "message": "Fix the reset command to set HEAD to a proper id\n\nBy default, the git.reset() command was setting the head to the 'HEAD'\nvalue (introduced by commit 15de5ae14f1c76adac52ca5633a679fba79a877c).\nThis patch fixes it and also adds an assert in the __set_head()\nfunction to detect future bugs.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "e2d769b29016dcb4e2294646f52a09d777a724d1",
+    "short_hash": "e2d769b",
+    "author": "Catalin Marinas",
+    "date": "2006-02-20T21:26:22+00:00",
+    "message": "Fix the e-mail address escaping\n\nThis patch makes StGIT only escape the quotes in an e-mail address since\npassing them unescaped as GIT_* environment variables can cause problems.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "73e2d98ea8bb1cae1c8d8b0cbdede66b26a05da6",
+    "short_hash": "73e2d98",
+    "author": "Karl Hasselstr\\\\�\\\\�m",
+    "date": "2006-02-19T10:27:01+00:00",
+    "message": "[PATCH 2/2] Add 'stg uncommit' command\n\nAdd an uncommit command, which is exactly the opposite of 'stg\ncommit'.\n\nSigned-off-by: Karl Hasselström <kha@treskal.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "1fceece7011fb0c32181d4e2128a871b09651b01",
+    "short_hash": "1fceece",
+    "author": "Catalin Marinas",
+    "date": "2006-02-17T21:31:45+00:00",
+    "message": "Add --stdout option to export\n\nThis option allows the 'export' command to write the patches to the\nstandard output. Useful for reviewing patches without writing them to\nfiles.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "29f005891588edee926512a03710672f43c21183",
+    "short_hash": "29f0058",
+    "author": "Catalin Marinas",
+    "date": "2006-02-17T21:31:45+00:00",
+    "message": "Add --mbox option to the 'mail' command\n\nWith this option, the mail command will dump the e-mails to standard output\nin an mbox format. Useful to review the e-mails before sending.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "d6a93cae39f0cf2c1d9d61179a9066cd1e7c3508",
+    "short_hash": "d6a93ca",
+    "author": "Karl Hasselstr\\�m",
+    "date": "2006-02-17T21:31:44+00:00",
+    "message": "Use --refid option even when sending a cover mail\n\nStGIT used to just ignore the --refid option when sending a cover\nmail. With this patch, it will send the cover mail as a reply to the\nmail identified by the refid, and the patch emails as replies to the\ncover mail as usual.\n\nSigned-off-by: Karl Hasselstr�m <kha@treskal.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "51cb39dbf3530655ed5af69b135e5b4edb4b7f4f",
+    "short_hash": "51cb39d",
+    "author": "Karl Hasselstr\\�m",
+    "date": "2006-02-17T21:31:44+00:00",
+    "message": "Change the signature start string to \"-- \\n\"\n\nChange the signature start string from \"--\\n\" to \"-- \\n\" in the cover\nmail template, as recommended in Mutt's manual:\n\n    It is *strongly* recommended that you not unset this variable\n    [from its default value of \"-- \\n\"] unless your \"signature\"\n    contains just your name. The reason for this is because many\n    software packages use \"-- \\n\" to detect your signature. For\n    example, Mutt has the ability to highlight the signature in a\n    different color in the builtin pager.\n\nSigned-off-by: Karl Hasselstr�m <kha@treskal.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "2b4b9c29d1bc5d98eafdfdc82b99b57ebd4298d0",
+    "short_hash": "2b4b9c2",
+    "author": "Karl Hasselstr\\�m",
+    "date": "2006-02-17T21:31:44+00:00",
+    "message": "Update .git/refs/heads/base after patch deletion\n\nSave the current HEAD into refs/heads/base if the stack is empty after\na patch has been deleted. This was not done before, which caused\nrefs/heads/base to not be updated after 'stg commit'. To guard against\nexisting repositories with no applied patches and HEAD !=\nrefs/heads/base, also do the update every time someone asks for the\nname of refs/heads/base.\n\nSigned-off-by: Karl Hasselstr�m <kha@treskal.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "2fef9462b26126402f26140a02d3e16cdd2d9928",
+    "short_hash": "2fef946",
+    "author": "Catalin Marinas",
+    "date": "2006-02-17T21:31:43+00:00",
+    "message": "Allow tag objects to be passed on the command line\n\nstgit.common.git_id() was modified to add '^0' to the revision so that a\ntag can be used for different operations and the corresponding commit will\nbe returned. Commands like 'branch --create' were failing if a tag was\npassed.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "844a164019385f19d8607754b3ae130eee1dfd89",
+    "short_hash": "844a164",
+    "author": "Catalin Marinas",
+    "date": "2006-02-13T16:54:09+00:00",
+    "message": "Add prune-safety to StGIT\n\nThe top of each patch will also be stored in the .git/refs/patches/branch/\ndirectory so that tools commands like git prune would not destroy the\nunapplied patches. Since there is no support for patch history at the\nmoment, a git prune command would remove all the previous versions of a\npatch (which were no longer accessible anyway).\n\nThe old repositories are automatically upgraded.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "0a01a6d0eaf0c6a70819da2f73fc659e7a83b569",
+    "short_hash": "0a01a6d",
+    "author": "Catalin Marinas",
+    "date": "2006-02-05T10:31:27+00:00",
+    "message": "Check whether the file exists in the fold command\n\nThis is to avoid an error reported by GIT.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "4db741b16855c96a8a1f09ce1c91e5670d29a30d",
+    "short_hash": "4db741b",
+    "author": "Catalin Marinas",
+    "date": "2006-02-05T09:45:21+00:00",
+    "message": "Use the GIT-specific environment as default\n\nIf the stgitrc files do not contain any information about the author or\ncommitter, make StGIT use the GIT_* environment variables as defaults.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "bad9dcfc19eb88f866ebf97692fbde5d7827f76e",
+    "short_hash": "bad9dcf",
+    "author": "Chuck Lever",
+    "date": "2006-01-29T13:14:01-05:00",
+    "message": "Add an option to \"stg branch\" to convert the internal format\n\nPrevious patch adds support for a separate patch directory in each branch.\nLet's give users an option to convert their old branches to new style ones\nand back.\n\nSigned-off-by: Chuck Lever <cel@netapp.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "02ac3ad2d474c60c1cdcb6b45451c1077b735ca0",
+    "short_hash": "02ac3ad",
+    "author": "Chuck Lever",
+    "date": "2006-01-29T13:13:59-05:00",
+    "message": "Use a separate directory for patches under each branch subdir\n\nCurrently you can't specify a patch name that matches the name of one of\nthe stgit special files under .git/patches/<branch-name>.  Let's use a\nnew subdirectory under .git/patches/<branch-name> to contain just the\npatch directories to remove this limitation.\n\nSigned-off-by: Chuck Lever <cel@netapp.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "a34b42e809fab42d08f92fed47d1e2f4226a50fb",
+    "short_hash": "a34b42e",
+    "author": "Chuck Lever",
+    "date": "2006-01-29T13:08:36-05:00",
+    "message": "\"stg pull\" says \"popping all patches\" even when it doesn't\n\nRunning \"stg pull\" says it pops all patches, but it really means it is\npopping all *applied* patches.  Change the informational message to match\nthe behavior.\n\nSigned-off-by: Chuck Lever <cel@netapp.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "31c5abf2374b391eb4353ca3955b5950f0eecd6d",
+    "short_hash": "31c5abf",
+    "author": "Pavel Roskin",
+    "date": "2006-01-27T00:17:28-05:00",
+    "message": "Treat \"stg --help cmd\" and \"stg help cmd\" like \"stg cmd\n\nUser's intention is perfectly clear if \"-h\", \"--help\" or \"help\" is\nfollowed by a valid command - show help for that command.\n\nSigned-off-by: Pavel Roskin <proski@gnu.org>",
+    "files_changed": 1
+  },
+  {
+    "hash": "16ad223e74aae6fa78ca529e7af7db91097591bf",
+    "short_hash": "16ad223",
+    "author": "Pavel Roskin",
+    "date": "2006-01-24T16:25:41-05:00",
+    "message": "stg export: check if there are any patches to export\n\nOtherwise, stg export fails with \"list index out of range\"\n\nSigned-off-by: Pavel Roskin <proski@gnu.org>",
+    "files_changed": 1
+  },
+  {
+    "hash": "026c0689b2a70875f48c8933298ef2ae8e4eae7c",
+    "short_hash": "026c068",
+    "author": "Catalin Marinas",
+    "date": "2006-01-23T17:37:31+00:00",
+    "message": "Allow patch refreshing for some files only\n\nThe patch allows the 'refresh' command to accept files as arguments. Only\nthe local changes to the specified files will be considered for inclusion\nin the patch to be refreshed.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "3bd6274e247baa8c9f652fcdfd74180b0933773c",
+    "short_hash": "3bd6274",
+    "author": "Catalin Marinas",
+    "date": "2006-01-22T08:56:24+00:00",
+    "message": "Remove the --force option for new\n\nThe default behaviour is now the same as the previous 'new --force' since\nmost of the people (and myself) first change the tree and run 'new'\nafterwards to create the patch. Note that the newly created patch is empty\neven if there are local changes. A 'refresh' command is needed to add the\nlocal changes to the patch.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "4625b604cae3553d4db0177d4ab9f3ad682bdd15",
+    "short_hash": "4625b60",
+    "author": "Pavel Roskin",
+    "date": "2006-01-21T22:21:59+00:00",
+    "message": "Make tutorial a valid asciidoc article.\n\nThere should be only one level 0 title, so redefine underline rules in\nasciidoc.conf to keep the existing underlines when possible.  Form a new\nlevel 1 part \"Technical Information\" from the text at the end.  Make\nintroduction a preamble - it's too short to be a level 1 section.\n\nAdd doc/Makefile to process the tutorial automatically.  make needs to\nbe run explicitly in the doc directory.\n\nSigned-off-by: Pavel Roskin <proski@gnu.org>",
+    "files_changed": 3
+  },
+  {
+    "hash": "15de5ae14f1c76adac52ca5633a679fba79a877c",
+    "short_hash": "15de5ae",
+    "author": "Catalin Marinas",
+    "date": "2006-01-19T15:01:29+00:00",
+    "message": "Fix the 'status --reset' for individual files\n\nBy default, status --reset calls resolved which updates the tree index and\nthe git-checkout-index -f does not overwrite the files anymore. This patch\nexplicitely resets the files to the HEAD tree id.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "98290387570c0494bd5303e2f7e9136c43745bcc",
+    "short_hash": "9829038",
+    "author": "Catalin Marinas",
+    "date": "2006-01-12T21:04:30+00:00",
+    "message": "Fix the clone command failure\n\nThe clone command fails because there is no GIT tree available, which is\nwrong. The patch fixes the Series.__init__() function and also creates a\nnew Series object in clone.py once a GIT tree was initialised.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "388f63b6f44cae4d4b9a92b299c1ae45cc6de70d",
+    "short_hash": "388f63b",
+    "author": "Pavel Roskin",
+    "date": "2006-01-10T12:14:00-05:00",
+    "message": "stgit: typo fixes\n\nSigned-off-by: Pavel Roskin <proski@gnu.org>",
+    "files_changed": 5
+  },
+  {
+    "hash": "d33c40f167af6610143c318c25880019ecbd0421",
+    "short_hash": "d33c40f",
+    "author": "Kirill Smelkov",
+    "date": "2006-01-02T14:26:02+03:00",
+    "message": "[trivial]  fix spelling typos\n\nFrom: Kirill Smelkov <kirr@landau.phys.spbu.ru>",
+    "files_changed": 2
+  },
+  {
+    "hash": "1f5b9c9a8202a1fd62cc0c88d17de681c1e85a62",
+    "short_hash": "1f5b9c9",
+    "author": "Catalin Marinas",
+    "date": "2005-12-23T14:26:15+00:00",
+    "message": "Release 0.8\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "05c9e6653351bb3c2c2ae822ace38f190288d70d",
+    "short_hash": "05c9e66",
+    "author": "Catalin Marinas",
+    "date": "2005-12-22T22:17:39+00:00",
+    "message": "X-Gmail-Received: cccbb3cdc84ae431fe07356861cbfa18540eab00\nDelivered-To: catalin.marinas@gmail.com\nReceived: by 10.70.27.12 with SMTP id a12cs9199wxa; Thu, 22 Dec 2005\n        06:26:44 -0800 (PST)\nReceived: by 10.67.27.6 with SMTP id e6mr472488ugj; Thu, 22 Dec 2005\n        06:26:43 -0800 (PST)\nReturn-Path: <Catalin.Marinas@arm.com>\nReceived: from cam-admin0.cambridge.arm.com (cam-admin0.cambridge.arm.com\n        [193.131.176.58]) by mx.gmail.com with ESMTP id\n        y1si659917uge.2005.12.22.06.26.43; Thu, 22 Dec 2005 06:26:43 -0800 (PST)\nReceived-SPF: pass (gmail.com: best guess record for domain of\n        Catalin.Marinas@arm.com designates 193.131.176.58 as permitted sender)\nReceived: from cam-owa2.Emea.Arm.com (cam-owa2.emea.arm.com [10.1.255.63])\n        by cam-admin0.cambridge.arm.com (8.12.10/8.12.10) with ESMTP id\n        jBMEQ4JH025197 for <catalin.marinas@gmail.com>; Thu, 22 Dec 2005 14:26:04\n        GMT\nReceived: from localhost.localdomain ([10.1.255.211]) by\n        cam-owa2.Emea.Arm.com with Microsoft SMTPSVC(6.0.3790.0); Thu, 22 Dec 2005\n        14:26:42 +0000\nFrom: Catalin Marinas <catalin.marinas@arm.com>\nSubject: [PATCH] \"status --reset\" does not restore the deleted files\nDate: Thu, 22 Dec 2005 14:26:42 +0000\nTo: catalin.marinas@gmail.com\nMessage-Id: <20051222142642.21281.82698.stgit@localhost.localdomain>\nX-OriginalArrivalTime: 22 Dec 2005 14:26:42.0831 (UTC)\n        FILETIME=[BAE209F0:01C60703]\nX-Evolution-Source: pop://catalin.marinas@pop.gmail.com/\nMime-Version: 1.0\n\nFrom: Catalin Marinas <catalin.marinas@gmail.com>\n\nActually, the broken code was restoring but deleting them. This was because\ngit.reset() command was used in the past instead of git.switch(). This\npatch fixed it.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "cc3db2b1cfb886fddf76ef758b8fb7b06753347c",
+    "short_hash": "cc3db2b",
+    "author": "Chuck Lever",
+    "date": "2005-12-03T22:50:19-05:00",
+    "message": "Add a \"--clone\" option to \"stg branch\"\n\nCloning a branch means creating a new branch and copying all of the\noriginal branch's patches and its base to it.  Like creating a tag,\nbut this also preserves all the StGIT patches as well.\n\nSigned-off-by: Chuck Lever <cel@netapp.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "f82e85bcc0c4e0a6e2012d6b8b48d9c0ea8009c6",
+    "short_hash": "f82e85b",
+    "author": "Chuck Lever",
+    "date": "2005-11-29T17:09:45-05:00",
+    "message": "\"stg series\" option to show patch summary descriptions\n\nOptionally show each patch's short description when listing a series.\n\nSigned-off-by: Chuck Lever <cel@netapp.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "1780280ce740fd36b032ef6fc42feb34d1dd272b",
+    "short_hash": "1780280",
+    "author": "Paolo \\'Blaisorblade\\' Giarrusso",
+    "date": "2005-11-13T20:42:25+01:00",
+    "message": "Stgit - gitmergeonefile.py: handle removal vs. changes\n\nI just got a \"removal vs. changed\" conflict, which is unhandled by StGit. That\nis taken from git-merge-one-file resolver, but is bad, as stg resolved does not\nhandle unmerged entries (and probably it should be fixed too).\n\nSample patch included, but some thought must be done on it (see the comments I\nleft in).\n\nSigned-off-by: Paolo 'Blaisorblade' Giarrusso <blaisorblade@yahoo.it>",
+    "files_changed": 1
+  },
+  {
+    "hash": "fa08ec0858ea909d724009ac4dbbac17fbbf2515",
+    "short_hash": "fa08ec0",
+    "author": "Catalin Marinas",
+    "date": "2005-10-17T15:50:19+01:00",
+    "message": "Fix the branch protect/unprotect message\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "24eede728321fce4f73d812f3af2a35f679c2f9e",
+    "short_hash": "24eede7",
+    "author": "Catalin Marinas",
+    "date": "2005-10-07T22:15:38+01:00",
+    "message": "Flush the HEAD cache in set_head_file()\n\nThis function also changes the value read from the HEAD link but it didn't\nflush the internal cached value.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "c47501f994ed3b2e0906ccee5590903756fe566d",
+    "short_hash": "c47501f",
+    "author": "Chuck Lever",
+    "date": "2005-10-06T21:59:55+01:00",
+    "message": "Fix a bug in \"stg branch --rename\"\n\nWe were using the wrong pathname when setting HEAD.\n\nSigned-off-by: Chuck Lever <cel@netapp.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "2bc93640bae6adb563cd8b223af127c355bdd3a9",
+    "short_hash": "2bc9364",
+    "author": "Chuck Lever",
+    "date": "2005-10-06T21:58:01+01:00",
+    "message": "[PATCH] Fix a couple of bugs in \"stg branch --create\"\n\nUse \"switch()\" instead of \"git.switch()\".  Also, __set_head is a little\nmore complicated now, so a __clear_head_cache() is needed before we call it.\n\nSigned-off-by: Chuck Lever <cel@netapp.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "c1fe1f9953a874eef1f4e975af0430766176e3f2",
+    "short_hash": "c1fe1f9",
+    "author": "Chuck Lever",
+    "date": "2005-10-06T13:57:40+01:00",
+    "message": "Add support for branch description files\n\nThese are single line files that are displayed by \"stg branch --list\".\n\nSigned-off-by: Chuck Lever <cel@netapp.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "0b4b9499a53813957d23adaa0e97e1cc3a3a6900",
+    "short_hash": "0b4b949",
+    "author": "Chuck Lever",
+    "date": "2005-10-06T13:57:12+01:00",
+    "message": "Allow user to protect some branches against \"stg pull\"\n\nSometimes we want to develop against a branch that doesn't evolve (eg.\n2.6.12).  To prevent an accidental \"stg pull\", provide two new options to\nstg: \"--protect\" and \"--unprotect\".  This also prevents deleting any\npatches in the series.\n\nSigned-off-by: Chuck Lever <cel@netapp.com>",
+    "files_changed": 4
+  },
+  {
+    "hash": "7b1ba1a6f8c89f551377b3b3791bfee7b01d3350",
+    "short_hash": "7b1ba1a",
+    "author": "Chuck Lever",
+    "date": "2005-10-06T13:56:42+01:00",
+    "message": "Rudimentary support for multiple development branches\n\n stg branch\n\n   show the name of the current branch.\n\n stg branch <branch-name>\n\n   switch to the named branch.  after the switch is complete,\n   all currently applied patches in the target branch are\n   applied.\n\n stg branch --create <branch-name> [ <commit-sha1> ]\n\n   create a new branch.  if <commit-sha1> is not specified then\n   the branch is created starting at the commit pointed to by\n   the current HEAD.  otherwise, the branch is created starting\n   at the given commit.\n\n   when the branch creation completes, the new branch becomes\n   the current branch.\n\n stg branch --delete [ <branch-name> ]\n\n   delete a branch and all patches it contains.  if no name is\n   specified, delete the current branch and switch to the\n   \"master\" branch.  otherwise, delete the named branch.\n\n stg branch --list\n\n   list all the development branches in the current repository\n   along with their descriptions and status.\n\n stg branch --rename <from-branch-name> <to-branch-name>\n\n   rename a branch, and switch to the new name.\n\n stg branch -h\n\n   print a synopsis of the \"stg branch\" command.\n\nSigned-off-by: Chuck Lever <cel@netapp.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "94b7894d7cbbbe5c1350a198727f88c51f3cd4de",
+    "short_hash": "94b7894",
+    "author": "Chuck Lever",
+    "date": "2005-10-06T11:20:14+01:00",
+    "message": "Allow print_crt_patch to work on other branches\n\nprint_crt_patch() current prints the current patch in the current branch.\nAdd a function argument to allow it to print the current patch in other\nbranches.\n\nSigned-off-by: Chuck Lever <cel@netapp.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "72594233910a7f3ae988020702de20d8703a2ffb",
+    "short_hash": "7259423",
+    "author": "Chuck Lever",
+    "date": "2005-10-06T11:19:22+01:00",
+    "message": "Add the ability to rename a git branch\n\nTo keep StGit-specific functionality separate from git functionality,\ncreate a git.rename_branch function to do appropriate sanity checking and\nrename branch heads.\n\nSigned-off-by: Chuck Lever <cel@netapp.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "6f48e5f8db212cc241511aa03ed47534580357b2",
+    "short_hash": "6f48e5f",
+    "author": "Chuck Lever",
+    "date": "2005-10-06T11:18:18+01:00",
+    "message": "Add the ability to delete a branch to git.py\n\n\"git branch -D\" checks first to see whether all the commits in the doomed\nbranch are already in the branch pointed to by HEAD.  I don't think we need\nthat level of checking here.  We just delete \"refs/heads/branchname.\"\n\nSigned-off-by: Chuck Lever <cel@netapp.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "982b96972967be0a9cbb5c25c4130e618f6f247e",
+    "short_hash": "982b969",
+    "author": "Chuck Lever",
+    "date": "2005-10-06T11:17:50+01:00",
+    "message": "Add git method for switching to a different branch\n\nSigned-off-by: Chuck Lever <cel@netapp.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "2b4a8aa59ff6e4448406352d99b7d5235b0e3ce8",
+    "short_hash": "2b4a8aa",
+    "author": "Chuck Lever",
+    "date": "2005-10-06T11:17:48+01:00",
+    "message": "Add git method for creating a fresh branch\n\nBasically this is \"git checkout -b\".\n\nSigned-off-by: Chuck Lever <cel@netapp.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "b99a02b040dd0dfbbace447bab95737d89fae575",
+    "short_hash": "b99a02b",
+    "author": "Chuck Lever",
+    "date": "2005-10-06T11:12:44+01:00",
+    "message": "Create a new utility function in git.py for setting the HEAD link\n\nAdd a new method in git.py for switching the HEAD link to point to a\ndifferent ref.\n\nSigned-off-by: Chuck Lever <cel@netapp.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "fc804a49aff45b6659eef3088e44ea1e1191b3ee",
+    "short_hash": "fc804a4",
+    "author": "Chuck Lever",
+    "date": "2005-10-06T11:12:06+01:00",
+    "message": "Add a stack method to delete a patch series\n\nIn preparation to introducing the ability to delete a branch, add a stack\nmethod that will iterate over a patch series and delete each patch.\n\nSigned-off-by: Chuck Lever <cel@netapp.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "7c47d096c74a2654fc9d67490adbe3066d24df98",
+    "short_hash": "7c47d09",
+    "author": "Catalin Marinas",
+    "date": "2005-10-05T16:58:18+01:00",
+    "message": "Add a --reset option to resolved\n\nWith this option one can ask for a conflicted file to be reset to one of\nthe local, remote or older states.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "84fcbc3b78f3a0156025d4eb6f6b76df7a5df233",
+    "short_hash": "84fcbc3",
+    "author": "Catalin Marinas",
+    "date": "2005-10-05T16:58:18+01:00",
+    "message": "Allow git.apply_patch() to take a base revision\n\nThis option is useful for import --base and fold commands. Both these\ncommands were modified to take advantage of it. The fold commands also\nsupports a --base option, similar to the import one.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 4
+  },
+  {
+    "hash": "ba524d4cae140a8a4b4dc573941677841aa8db64",
+    "short_hash": "ba524d4",
+    "author": "Catalin Marinas",
+    "date": "2005-10-05T16:58:18+01:00",
+    "message": "Add a --fold option to pick\n\nThis option causes the given commit object to be merged into the current\npatch instead of creating a new one.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "3c3e0344d3b9f2626a31105f9f794142ed4a8dfa",
+    "short_hash": "3c3e034",
+    "author": "Catalin Marinas",
+    "date": "2005-10-05T09:32:08+01:00",
+    "message": "'status --reset' should remove the conflicts as well\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "aa01a285716ffb29a62cd7d2ef5663fa2b73f568",
+    "short_hash": "aa01a28",
+    "author": "Catalin Marinas",
+    "date": "2005-10-04T20:56:18+01:00",
+    "message": "Cache the HEAD value\n\nThere are many calls to git.get_head(). This value should be cached to\nspeed things up.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "94227db3c3ae40343c1cbc41b5617389eb7d7c40",
+    "short_hash": "94227db",
+    "author": "Catalin Marinas",
+    "date": "2005-10-04T20:56:18+01:00",
+    "message": "Add the --reset option to status\n\nThis option resets all the changes in the current tree (relative to HEAD).\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "3237b6e42db7459d4055747d58ba8afc49371d27",
+    "short_hash": "3237b6e",
+    "author": "Catalin Marinas",
+    "date": "2005-10-04T20:56:18+01:00",
+    "message": "Make __commits global in git.py\n\nSome weird errors with Python scoping for the __head global variable\nrequired the use of global. Add it for this variable as well.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "bca12bd1634520a9d1b81daa6a48e0b09a0df879",
+    "short_hash": "bca12bd",
+    "author": "Chuck Lever",
+    "date": "2005-10-04T20:56:05+01:00",
+    "message": "Use a more clear message when pop or push can't apply a patch\n\nMinor nit: the error message when \"stg pop\" or \"stg push\" can't apply a\npatch is vague.  Add a little extra logic to print a more precise error\nmessage in these cases.\n\nSigned-off-by: Chuck Lever <cel@netapp.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "9cd0fc96c52e3ffd6054b030b14dd100001089a0",
+    "short_hash": "9cd0fc9",
+    "author": "Catalin Marinas",
+    "date": "2005-10-03T18:33:49+01:00",
+    "message": "Escape the unusual characters in the name <email> strings\n\nOtherwise there are problems when passing the environment to git-commit.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "575a7e7cb31c21fcf13aa7622200496161286d10",
+    "short_hash": "575a7e7",
+    "author": "Catalin Marinas",
+    "date": "2005-10-03T15:35:40+01:00",
+    "message": "Optimise 'push' to use git-apply instead of git-read-tree\n\nWith this patch, 'push' will use 'git-diff-tree | git-apply' first. If this\noperation fails, it will fall back to the three-way merge with\ngit-read-tree.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "3097799dcde97cc3e1e3d6c87138f300df0ec2b6",
+    "short_hash": "3097799",
+    "author": "Chuck Lever",
+    "date": "2005-10-03T13:03:31-04:00",
+    "message": "Use \"git-rev-parse\" to get the HEAD commit\n\nTraditionally, HEAD was just a link to a refs file.  Recently, however,\nsupport for HEADs of the form \"ref: \" was added to git.  In addition,\nit's safer to verify the HEAD commit id before using it.\n\nChange git.py to use \"git-rev-parse\" to derive the HEAD commit instead of\nreading the HEAD link directly.  If there are any problems with the HEAD\ncommit id, git.get_head() now raises an exception.\n\nAnd, use \"git-update-ref\" to update the HEAD for similar reasons.\n\nSigned-off-by: Chuck Lever <cel@netapp.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "2156a798d158000cc6826af48370b73834fafe54",
+    "short_hash": "2156a79",
+    "author": "Catalin Marinas",
+    "date": "2005-10-02T08:45:53+01:00",
+    "message": "Release 0.7\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "6a093bbbfc2b933a78253ea23287a411631565c5",
+    "short_hash": "6a093bb",
+    "author": "Catalin Marinas",
+    "date": "2005-09-27T21:27:33+01:00",
+    "message": "Add a commit command to merge the current patches into base\n\nBy default, the base is only advanced by 'stg pull'. A commit command would\nallow the currently applied patches to be merged into the base and removed\nfrom the current series. This commands adds a bit of SCM flavour to StGIT.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "0618ea9c955bc7015ec5a7cccac66760738c9644",
+    "short_hash": "0618ea9",
+    "author": "Catalin Marinas",
+    "date": "2005-09-27T17:29:48+01:00",
+    "message": "Implement a 'pick' command for cherry-picking\n\nThe initial cherry-picking implementation in import was quite hard to find\nand the import command became pretty hard to use.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "d1c8fcd7a3a252d2255ac9dbaa257f28c9b0228f",
+    "short_hash": "d1c8fcd",
+    "author": "Catalin Marinas",
+    "date": "2005-09-23T14:15:38+01:00",
+    "message": "Add the tutorial back to the repository\n\nThis is to avoid problems when the site is down. At the moment, the\ntutorial on the wiki was only converted to plain text and added. It might\nbe out of date for some commands or options.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "c23e93ff42f19ab5b2ff5701bbccbedb15882941",
+    "short_hash": "c23e93f",
+    "author": "Paolo 'Blaisorblade' Giarrusso",
+    "date": "2005-09-16T21:35:21+02:00",
+    "message": "Fix \"stg clean\" when stack is empty\n\nFrom: Paolo 'Blaisorblade' Giarrusso <blaisorblade@yahoo.it>\n\nIt crashes on accessing 1st element of an empty array.\n\nSigned-off-by: Paolo 'Blaisorblade' Giarrusso <blaisorblade@yahoo.it>",
+    "files_changed": 1
+  },
+  {
+    "hash": "d3cf7d862f3ef6e3d6994714163a847e2ecba8e5",
+    "short_hash": "d3cf7d8",
+    "author": "Paolo 'Blaisorblade' Giarrusso",
+    "date": "2005-09-16T21:35:20+02:00",
+    "message": "Implement fast-forward when only tree (but not\n\nFrom: Paolo 'Blaisorblade' Giarrusso <blaisorblade@yahoo.it>\n\nWhen the \"bottom\" commit and the HEAD don't match, but they refer to the\nsame tree (for instance after a refresh where only the description\nchanged), we can still fast-forward, by keeping the same top tree and\ncalling git-commit-tree (which only requires the tree object) with the new\nparent. I've altered git.commit to allow this.\n\nBtw, I've also avoided the use of .commitmsg and switched to piping the\ndescription.\n\nSigned-off-by: Paolo 'Blaisorblade' Giarrusso <blaisorblade@yahoo.it>",
+    "files_changed": 2
+  },
+  {
+    "hash": "a5bbc44d012e4d50fc35b428ed342997454c8c8f",
+    "short_hash": "a5bbc44",
+    "author": "Paolo 'Blaisorblade' Giarrusso",
+    "date": "2005-09-16T21:35:19+02:00",
+    "message": "Avoid allowing --undo if it doesn't change anything\n\nFrom: Paolo 'Blaisorblade' Giarrusso <blaisorblade@yahoo.it>\n\nAvoid top/bottom backup files identical to current ones. Simply remove\nthem.\n\nAlso, change restore_old_boundaries() to handle gracefully the new\nsituation rather than print an exception.\n\nSigned-off-by: Paolo 'Blaisorblade' Giarrusso <blaisorblade@yahoo.it>",
+    "files_changed": 2
+  },
+  {
+    "hash": "faed67707d8377ddb68fa8ba199d85ed90d1f27c",
+    "short_hash": "faed677",
+    "author": "Paolo 'Blaisorblade' Giarrusso",
+    "date": "2005-09-16T21:35:17+02:00",
+    "message": "Make \"stg files\" output match \"quilt files\" one\n\nI'm used to doing vi $(quilt files), which is impossible with stgit.\nAdd an option (-b/--base) to request the normal behaviour, but make it\nnon-default as the current output is useful.\n\nSigned-off-by: Paolo 'Blaisorblade' Giarrusso <blaisorblade@yahoo.it>",
+    "files_changed": 2
+  },
+  {
+    "hash": "24aadb3f7d7347d22c5b7afdd0b8989cccb11a9b",
+    "short_hash": "24aadb3",
+    "author": "Paolo 'Blaisorblade' Giarrusso",
+    "date": "2005-09-16T21:35:16+02:00",
+    "message": "Fix \"mail\" command when description contains \"From\"\n\nFor kernel patches, the \"From\" line from the email is often preserved in\nthe patch itself, and the one from the email is sometimes lost, so I add an\nexplicit one. And mail barfes on this.\nFix it up.\n\nSigned-off-by: Paolo 'Blaisorblade' Giarrusso <blaisorblade@yahoo.it>",
+    "files_changed": 1
+  },
+  {
+    "hash": "537ddf3fcbb207659094a19acd83ac7b83d4deb1",
+    "short_hash": "537ddf3",
+    "author": "Paolo 'Blaisorblade' Giarrusso",
+    "date": "2005-09-16T21:35:15+02:00",
+    "message": "stg diff / files: don't update directory cache\n\nDo git-update-cache only when diffing with the working tree, not otherwise.\nSpending something like 1min for a stg files is bad - yes, my laptop\nwas really busy and the Linux tree was probably cache-cold, but that's just\nnot needed.\n\nAlso, in diffstat we currently do it both by hand and by calling git.diff.\nAnd in files there's no need at all for that - even the comments says that\n\"files\" has only to do with committed changes.\n\nSigned-off-by: Paolo 'Blaisorblade' Giarrusso <blaisorblade@yahoo.it>",
+    "files_changed": 1
+  },
+  {
+    "hash": "9f00453e337990a34a432a08340799fe628bd4d2",
+    "short_hash": "9f00453",
+    "author": "Paolo 'Blaisorblade' Giarrusso",
+    "date": "2005-09-16T21:35:13+02:00",
+    "message": "Make \"empty patch\" checking optional in \"series\"\n\nThat's just too slow, and quilt doesn't do it, so user will live with it.\nDon't know if there's a reason to allow dropping the fanciness here\nentirely, but I think there's no user doing one-liner scripts with quilt\nseries. And anyway, for that you can do \"stg applied; stg unapplied\".\n\nActually, with this patch you must ask explicitly the checking.\n\nSigned-off-by: Paolo 'Blaisorblade' Giarrusso <blaisorblade@yahoo.it>",
+    "files_changed": 1
+  },
+  {
+    "hash": "37a4d1bfabaca3dd947799f10c6cfc369a9edb5e",
+    "short_hash": "37a4d1b",
+    "author": "Catalin Marinas",
+    "date": "2005-09-16T14:05:06+01:00",
+    "message": "Allow 'import' to cherry-pick a commit object\n\nA commit object in the tree can be cherry-picked and imported into a\nseparate StGIT patch. It also allow reverse-importing, i.e. cancelling an\nexisting commit.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 4
+  },
+  {
+    "hash": "629ddd028508be1f40dcd0f4509decb8de2a337c",
+    "short_hash": "629ddd0",
+    "author": "Catalin Marinas",
+    "date": "2005-09-14T13:51:07+01:00",
+    "message": "'export' will use patches-<branch> by default\n\nPreviously, it was exporting to the patches directory by default but this\nmay cause problems if multiple branches are used.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "1f5e914825645f085d8409023fe0f26e6de7d1ea",
+    "short_hash": "1f5e914",
+    "author": "Catalin Marinas",
+    "date": "2005-09-14T13:31:23+01:00",
+    "message": "Update 'stg pull' to the latest 'git pull' API\n\nThe --head and --tag options are no longer available.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "2f7c8b0ba410854dc7dd0c2282323cc04dfcce8e",
+    "short_hash": "2f7c8b0",
+    "author": "Catalin Marinas",
+    "date": "2005-09-13T17:11:18+01:00",
+    "message": "Add a --branch option to different commands\n\nThis command will show the information on a different branch than the\ncurrent one.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 10
+  },
+  {
+    "hash": "d0d139a330a0e2f49b9acad4ea1938304b4110ac",
+    "short_hash": "d0d139a",
+    "author": "Catalin Marinas",
+    "date": "2005-09-13T10:44:58+01:00",
+    "message": "Add a --version=... option to the mail command\n\nThis option adds a version string in the [PATCH version nr/total] form for\nthe e-mailed patches.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "be24d874c515e1515d4a0d91422460b72e451576",
+    "short_hash": "be24d87",
+    "author": "Catalin Marinas",
+    "date": "2005-09-13T10:28:38+01:00",
+    "message": "Use .git/info/exclude instead of .git/exclude\n\nThe stg status command should follow the latest GIT API.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "22ea91023037f7f7f4256b2dbc79d8fb6830e5fc",
+    "short_hash": "22ea910",
+    "author": "Catalin Marinas",
+    "date": "2005-09-07T10:45:13+01:00",
+    "message": "Add a copyright command to display the copyright terms\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "1e0bdf2afb56fd15cfdc34017ba20398a8d2c584",
+    "short_hash": "1e0bdf2",
+    "author": "Chuck Lever",
+    "date": "2005-09-06T12:12:29-04:00",
+    "message": "Add a \"version\" command\n\nFlesh out existing version command and expose it.\n\nSigned-off-by: Chuck Lever <cel@netapp.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "cd076ff629ab7963f3497f7022ebb2b9a99a52ef",
+    "short_hash": "cd076ff",
+    "author": "Chuck Lever",
+    "date": "2005-09-06T12:12:27-04:00",
+    "message": "Set stg's text editor in .stgitrc\n\nAllow specifying stg's text editor in .stgitrc.  Some legacy tools need\nan old version of \"vi\" in EDITOR, but we can be flexible.\n\nSigned-off-by: Chuck Lever <cel@netapp.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "95742cfc06832ec30191567c5b83247a28f6ec64",
+    "short_hash": "95742cf",
+    "author": "Paolo 'Blaisorblade' Giarrusso",
+    "date": "2005-09-02T11:25:30+02:00",
+    "message": "[PATCH] Really fix import --edit invoking editor twice\n\nA typo prevented the previous patch for this (commit\n9d15ccd85e36ef5cd554aaf98f1c37ef0433697f) from working (edit is never used,\nyou should have set options.edit). Ah, nice Python! No var declarations and\nthese are the effects (yes, I reproduced this).\n\nHowever, if the description is left empty, refresh_patch will again invoke\nthe editor. Also, with --showpatch, the first invocation shows the topmost\npatch, not the one to be imported.\n\nSo better stop new_patch from invoking the editor, and call it only on\nrefresh.\n\nBtw, clean the old unused \"edit\" parameter of Series.new_patch.\n\nSigned-off-by: Paolo 'Blaisorblade' Giarrusso <blaisorblade@yahoo.it>",
+    "files_changed": 2
+  },
+  {
+    "hash": "011cbd1b417a29bbcb189f86833bac773ba4a6f7",
+    "short_hash": "011cbd1",
+    "author": "Paolo 'Blaisorblade' Giarrusso",
+    "date": "2005-09-02T11:25:27+02:00",
+    "message": "[PATCH] Fix crash for empty description\n\nWe access the last character of the description, which may be empty. Use\nslicing to avoid this crash.\n\nSigned-off-by: Paolo 'Blaisorblade' Giarrusso <blaisorblade@yahoo.it>",
+    "files_changed": 1
+  },
+  {
+    "hash": "680e3a32c2dbda533837893336d3b7d7f3c439a6",
+    "short_hash": "680e3a3",
+    "author": "Paolo 'Blaisorblade' Giarrusso",
+    "date": "2005-09-02T11:25:24+02:00",
+    "message": "[PATCH] Allow fast-forward pushing.\n\nPushing patches is too slow. It's a lot slower than quilt, and possibly\neven slower than patch-scripts.\n\nEspecially, we never fast-forward patches even when we can, because when we\nreorder patches that's not always safe.\n\nIt is safe to fast-forward a patch sequence if the first patch in the\nsequence \"chains\" correctly with the current HEAD and each patch chains\nwith the previous one. With chaining I mean \"HEAD commit id matches the\nbottom id of the patch\".\n\nIn this patch I fast-forward the longest possible sequence starting from\nthe first patch.\n\nSince a single commit stores via parent links the entire history, after a\npatch doesn't chain there's almost no need to try to chain other patches.\n\nActually it could maybe happen (but I'm not trying to exploit that case):\ncreate a patch stack, pop it, apply a couple of subsequent patches out of\norder (so it's reparented), pop it, and repush the stack in the old order.\n\nThe chained sequence will stop at the changed patch, but (should we reuse\nthe old commit id when repushing, and we can, provided we delete the .old\nfile when refreshing) we'd reapply again the same commits.\n\nTODO: do fast-forward even when just the tree objects chain, but the\ncommits don't (for instance, after changing a patch description, we can't\nfast-forward with this patch). We can do that with git-commit-tree, which\ncreates a new commit based on a given tree, parent, description, without\nnecessarily checking it out.\n\nSigned-off-by: Paolo 'Blaisorblade' Giarrusso <blaisorblade@yahoo.it>",
+    "files_changed": 3
+  },
+  {
+    "hash": "6ad48e4898f40d58a236de38f0f49a9f8bfb7ab2",
+    "short_hash": "6ad48e4",
+    "author": "Paolo 'Blaisorblade' Giarrusso",
+    "date": "2005-09-02T11:25:20+02:00",
+    "message": "[PATCH] Show patch content in description edit buffer\n\nAdd an option (-s/--showpatch) to show the patch content when editing the\npatch description, by appending it to the edit buffer, for more accurate\npatch comment editing and to check its correctness before committing it.\n\nIt's how one works with quilt, and it's very important when the patch is\nnon-trivial to re-read it.\n\nIt's done for import, new and refresh, I left fold out.\n\nAdditionally, set the buffer filetype to \"diff\" for correct highlighting in\nVi.\n\nSigned-off-by: Paolo 'Blaisorblade' Giarrusso <blaisorblade@yahoo.it>",
+    "files_changed": 4
+  },
+  {
+    "hash": "4d4c0e3a5cf0930619317b473259177bc5b79f41",
+    "short_hash": "4d4c0e3",
+    "author": "Paolo 'Blaisorblade' Giarrusso",
+    "date": "2005-09-02T11:25:17+02:00",
+    "message": "[PATCH] Support .gitignore\n\nAdd support in stgit for .git/exclude like cogito does. Additionally, add\n-x option to avoid excluding any file from listing, as in cogito.\n\nSigned-off-by: Paolo 'Blaisorblade' Giarrusso <blaisorblade@yahoo.it>",
+    "files_changed": 2
+  },
+  {
+    "hash": "05d593c088d335e86573a2d4bc63ff308bde759b",
+    "short_hash": "05d593c",
+    "author": "Catalin Marinas",
+    "date": "2005-08-24T14:52:43+01:00",
+    "message": "Fix push --undo to remove the local changes\n\nWithout this patch, the command would fail if there are local changes\nbecause of git-read-tree -m -u.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "9d15ccd85e36ef5cd554aaf98f1c37ef0433697f",
+    "short_hash": "9d15ccd",
+    "author": "Catalin Marinas",
+    "date": "2005-08-23T17:19:22+01:00",
+    "message": "Fix the import --edit function\n\nIf the patch doesn't have any description, the editor is invoked twice,\nonce by new_patch and the 2nd time by refresh_patch. This patch fixes\nthis issue.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "402ad990d3fd6a92575e9ff6ad9f6109093d894c",
+    "short_hash": "402ad99",
+    "author": "Catalin Marinas",
+    "date": "2005-08-23T16:44:14+01:00",
+    "message": "Optimise the merge operation\n\nThe merge operation performs unnecessary git-checkout-cache which was\nalready done by git-read-tree or gitmergeonefile.py. The refresh\nresulted from a push operation should not check for the tree status\nsince the index is already up-to-date a successful merge. For an failed\nmerge, the commit is not performed anyway.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "a5b29a1c486dc8f6b3080356296dfed25c210a74",
+    "short_hash": "a5b29a1",
+    "author": "Catalin Marinas",
+    "date": "2005-08-23T13:41:41+01:00",
+    "message": "Optimise the git.switch() function\n\nBy default it checks the tree status and checks out the given tree id.\nThis can be done with 'git-read-tree -m old new'.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "a322940ba66cfb047676ad41a9ca1636d08c6d41",
+    "short_hash": "a322940",
+    "author": "Catalin Marinas",
+    "date": "2005-08-23T10:07:22+01:00",
+    "message": "Fix the push_patch function to not always call refresh_patch\n\nThe refresh_patch() function should only be called when there was a\nmerge operation, otherwise push_patch() should only checkout the new\nhead.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "592c8fc3320e45cee37adfa239eae857e4326661",
+    "short_hash": "592c8fc",
+    "author": "Catalin Marinas",
+    "date": "2005-08-21T08:55:25+01:00",
+    "message": "Release 0.6\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "e1261152d817111550e26c026d2793d8621b51ad",
+    "short_hash": "e126115",
+    "author": "Catalin Marinas",
+    "date": "2005-08-18T14:35:19+01:00",
+    "message": "Add the 'id' command\n\nThis command prints the hash value of a GIT id (defaulting to HEAD). In\naddition to the standard GIT id's like heads and tags, this command also\naccepts 'base' and '[<patch>]/(bottom | top)'.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "8e29bcd2fd67066143b88de8829130c6af043e2f",
+    "short_hash": "8e29bcd",
+    "author": "Catalin Marinas",
+    "date": "2005-08-18T13:46:20+01:00",
+    "message": "Optimise the Commit objects creation\n\nThe Commit objects are used for commands like 'series' to check whether\na patch is empty or not. Since the bottom of a patch is usually the same\nas the top of the previous one, it makes sense to cache the Commit\nobjects and reduce their creation (and git-cat-file calls) to half. This\npatch adds a Commit objects factory which caches the results.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "33e580e01e22fd8cf0f5ec542ab607f85d052286",
+    "short_hash": "33e580e",
+    "author": "Catalin Marinas",
+    "date": "2005-08-15T17:42:12+01:00",
+    "message": "Add --edit option to import\n\nThis option allows a patch description to be editted before being\nchecked in.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "ddbbfd845a3813658370c26a7d7ea91ac6f57fae",
+    "short_hash": "ddbbfd8",
+    "author": "Catalin Marinas",
+    "date": "2005-08-15T17:16:23+01:00",
+    "message": "Make 'stg pull' use 'git pull' directly\n\nIn the initial version, 'git fetch' was used but its interface might\nchange in the future.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "47e93ba96f6ca55cb4bf3701d4d5d190f25c0c49",
+    "short_hash": "47e93ba",
+    "author": "Catalin Marinas",
+    "date": "2005-08-15T17:16:17+01:00",
+    "message": "Allow StGIT to be installed in a local directory\n\nStGIT should no longer rely on being installed under /usr. This has\nimplications in the default python search path, the /etc/stgitrc file\nand the /usr/share/stgit/templates directory.\n\nBy default, the 'python setup.py install' command will now install StGIT\nin the home directory of the current user.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 7
+  },
+  {
+    "hash": "5185abc17c92cf16f985a5768654126af226c228",
+    "short_hash": "5185abc",
+    "author": "Catalin Marinas",
+    "date": "2005-08-08T18:08:01+01:00",
+    "message": "Fix the 'import --name' option overriding\n\nWhen the patch was read from a file, the --name option to import didn't\noverride the default name. This patch fixes it.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "c14444b97c474c156299a5d5f3fe161af2290884",
+    "short_hash": "c14444b",
+    "author": "Catalin Marinas",
+    "date": "2005-08-08T17:36:23+01:00",
+    "message": "Implement the fold command\n\nAt the moment, it only applies a patch read from a file or the standard\ninput on top of the current patch or on its bottom and three-way merged\nwith it (useful for upgrading external patches).\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 5
+  },
+  {
+    "hash": "6872f46bd3b91d26141711ebfc3b347dc58bf447",
+    "short_hash": "6872f46",
+    "author": "Catalin Marinas",
+    "date": "2005-08-03T16:38:11+01:00",
+    "message": "Create the .git/refs/bases/<head> file in 'init'\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "b8d258e59a1e769d296526296bccb12c07d06f72",
+    "short_hash": "b8d258e",
+    "author": "Catalin Marinas",
+    "date": "2005-08-03T13:40:48+01:00",
+    "message": "Add the 'number' variable to the e-mail template\n\nThis variable expands to an empty string if there is only one patch\nto be sent or to ' patchnr/totalnr' otherwise.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "1008fbce6fb0e9cfa0844303be14744d95f31c37",
+    "short_hash": "1008fbc",
+    "author": "Catalin Marinas",
+    "date": "2005-08-03T13:16:17+01:00",
+    "message": "Implement the 'clone' command\n\nThis command is based on the existing git-clone-script.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 4
+  },
+  {
+    "hash": "3899a8e26a7d38acdbc6c19c50522e6a0dff99c8",
+    "short_hash": "3899a8e",
+    "author": "Catalin Marinas",
+    "date": "2005-08-03T12:20:43+01:00",
+    "message": "'pull' should use the origin branch\n\nBy default it uses the branch with the same name as the head pointed to\nby the HEAD link. The command also accepts a different location.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "70893e135626f70b60f73380f0190d0f8f0e1089",
+    "short_hash": "70893e1",
+    "author": "Catalin Marinas",
+    "date": "2005-08-03T12:20:42+01:00",
+    "message": "Fix description/diff delimiting in import\n\nOnly '---' should be a valid form of delimiting (or 'diff -') but not\nmore than three '-'.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "5b0f1eaa09175829268a684eb4ba64a53db8f762",
+    "short_hash": "5b0f1ea",
+    "author": "Catalin Marinas",
+    "date": "2005-08-03T12:20:42+01:00",
+    "message": "Save .git/ORIG_HEAD when pulling changes\n\nORIG_HEAD is the base of the stack before merging the latest remote\nchanges.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "51d6eea0523d377f626a5eed1059f0a7e5534c49",
+    "short_hash": "51d6eea",
+    "author": "Catalin Marinas",
+    "date": "2005-07-30T22:02:31+01:00",
+    "message": "Release 0.5\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "dae0f0beb711276605b2a3d00791d635a7e2a70d",
+    "short_hash": "dae0f0b",
+    "author": "Catalin Marinas",
+    "date": "2005-07-29T16:30:24+01:00",
+    "message": "Add '%(maintainer)s' variable to the e-mail template\n\nFollowing some discussions on the git list, it looks like the \ncommitter's e-mail address doesn't have to be a valid one. The\nabove variable is generated from the author details defined in\nthe stgitrc file and is placed on the From: line in the default\ne-mail template.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "2bb969024baa9435ae25183c524c5a3b1f789681",
+    "short_hash": "2bb9690",
+    "author": "Catalin Marinas",
+    "date": "2005-07-28T17:30:08+01:00",
+    "message": "'mail' to use the global template file\n\nIf there is no .git/patchmail.tmpl file, use the default one in\n/usr/share/stgit/templates\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "23a88c7d79f3cec8ff330304894c249090278052",
+    "short_hash": "23a88c7",
+    "author": "Catalin Marinas",
+    "date": "2005-07-28T16:57:09+01:00",
+    "message": "'export' to use the global template file\n\nIf there is no .git/patchexport.tmpl file, use the default one in\n/usr/share/stgit/templates\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "8754986f0087dd6aa95c4816a509bde12044943b",
+    "short_hash": "8754986",
+    "author": "Catalin Marinas",
+    "date": "2005-07-28T16:13:56+01:00",
+    "message": "Install the template files as well\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 6
+  },
+  {
+    "hash": "c4a1503ac1528832b286cf9c1a2a97409b07eb54",
+    "short_hash": "c4a1503",
+    "author": "Peter Osterlund",
+    "date": "2005-07-28T13:55:46+02:00",
+    "message": "Handle 'A' flag for new files\n\nPatches that add new files don't work correctly if git reports them\nwith the 'A' flag. StGIT claims there are unresolved conflicts. This\npatch fixes it.\n\nSigned-off-by: Peter Osterlund <petero2@telia.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "0d2cd1e4238e397072360bad902c8a0cff4efcb0",
+    "short_hash": "0d2cd1e",
+    "author": "Catalin Marinas",
+    "date": "2005-07-27T22:17:25+01:00",
+    "message": "Implement an 'import' command\n\nThis patch implements the 'import' command.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "7371951ab97eb5e5c97e720f9af3803fdd86bf6c",
+    "short_hash": "7371951",
+    "author": "Catalin Marinas",
+    "date": "2005-07-26T13:54:56+01:00",
+    "message": "[AN] status for newly added files\n\nThis patch enables displaying of the newly added files prefixed with\neither A or N.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "e55b53e007f02331a27e16bcac18165952a202d5",
+    "short_hash": "e55b53e",
+    "author": "Catalin Marinas",
+    "date": "2005-07-26T13:54:56+01:00",
+    "message": "Add a patch renaming command\n\nThis command changes the name of a patch\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 3
+  },
+  {
+    "hash": "eb026d9396af187c6a92370595e85c4e94c4db0c",
+    "short_hash": "eb026d9",
+    "author": "Bryan larsen",
+    "date": "2005-07-21T22:12:10+01:00",
+    "message": "Add authentication capability to the mail command\n\nAdd authentication capability to the mail command.  Added 'smtppassword'\nand 'smtpuser' to config file and --smtp-user, --smtp-password to command\nline.\n\nSigned-off-by: Bryan Larsen <bryan.larsen@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "f338c3c088774601c6cd422bfac635c4187266c4",
+    "short_hash": "f338c3c",
+    "author": "Catalin Marinas",
+    "date": "2005-07-20T11:46:43+01:00",
+    "message": "Add a 'pull' command\n\nThe current implementation just uses git-fetch-script\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 4
+  },
+  {
+    "hash": "b4bddc068e5440e8b747329df4db841a14483d85",
+    "short_hash": "b4bddc0",
+    "author": "Catalin Marinas",
+    "date": "2005-07-19T17:30:45+01:00",
+    "message": "Implement the 'mail' command\n\nThis command is used to send a series of patches via SMTP. The\n.git/patchmail.tmpl file is used as the default template. A first message\ntemplate can be used with the --first option. Example templates are in\nthe examples/ directory.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 7
+  },
+  {
+    "hash": "acf038aef0f011490906473c0d84876fb0f94551",
+    "short_hash": "acf038a",
+    "author": "Catalin Marinas",
+    "date": "2005-07-15T15:31:17+01:00",
+    "message": "Add --force option to new\n\nThis option creates a new patch even if there are local changes in the\ntree. It is useful if one starts modifying the tree but forgot to create\na patch for it.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "de4c9d27c59100d6c2c3e04720f0c9651e58a87c",
+    "short_hash": "de4c9d2",
+    "author": "Catalin Marinas",
+    "date": "2005-07-15T13:10:10+01:00",
+    "message": "Implement 'clean' cmd\n\nThis command deletes all the empty patches from the series.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "fcee87cf868f18a3d684c3ba71232574f92c7b11",
+    "short_hash": "fcee87c",
+    "author": "Catalin Marinas",
+    "date": "2005-07-12T23:02:06+01:00",
+    "message": "Separate the commands in stgit/commands/* files\n\nThe main.py file is getting bigger and bigger and it will soon become\nunmaintenable. This patch creates separate files for each command.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 20
+  },
+  {
+    "hash": "3961dac1e645b7414e9bc3bc4088e2e7d0c5cbe8",
+    "short_hash": "3961dac",
+    "author": "Catalin Marinas",
+    "date": "2005-07-12T18:36:06+01:00",
+    "message": "Add --range option to export\n\nUseful when you only need to export a range of the applied patches.\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 1
+  },
+  {
+    "hash": "c920531e512b1776d3698fd05755f8791b3be831",
+    "short_hash": "c920531",
+    "author": "Catalin Marinas",
+    "date": "2005-07-11T18:44:40+01:00",
+    "message": "Add --template option to export\n\nSigned-off-by: Catalin Marinas <catalin.marinas@gmail.com>",
+    "files_changed": 2
+  },
+  {
+    "hash": "41a6d8591d5962dbfe8e372fff10c60e06718083",
+    "short_hash": "41a6d85",
+    "author": "Catalin Marinas",
+    "date": "2005-07-10T08:29:31+01:00",
+    "message": "Initial commit (Release 0.4)",
+    "files_changed": 0
+  }
+]
